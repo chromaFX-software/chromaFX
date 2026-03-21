@@ -12,7 +12,18 @@
       "likes": 3,
       "created_at": "2026-03-21T15:33:23.737Z",
       "has_thumbnail": true
+    },
+    {
+      "id": "p2",
+      "name": "test 2",
+      "category": "Community",
+      "description": "",
+      "tags": [],
+      "author": "DomiMondo",
+      "likes": 0,
+      "created_at": "2026-03-21T18:05:12.544Z",
+      "has_thumbnail": true
     }
   ],
-  "last_id": 1
+  "last_id": 2
 }
