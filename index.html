@@ -50,7 +50,7 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Subtiler Hintergrund-Effekt - Repariert mit z-index: -1 */
+        /* Subtiler Hintergrund-Effekt */
         body::before {
             content: '';
             position: fixed;
@@ -101,10 +101,29 @@
             display: flex;
             align-items: center;
         }
+
+        /* DEZENTER ÜBERGANG DIREKT AN DER BILD-KANTE */
         .logo img {
             height: auto;
             max-height: 45px;
             display: block;
+            background-color: #ffffff; 
+            border-radius: 4px; /* Leicht abgerundet, damit der Fade organischer wirkt */
+            
+            /* Sehr enger, weicher Schatten, der nur die Kante "schmilzen" lässt */
+            box-shadow: 
+                0 0 4px 1px #ffffff, 
+                0 0 12px 2px rgba(255, 255, 255, 0.3);
+            
+            transition: box-shadow 0.4s var(--ease), transform 0.4s var(--ease);
+        }
+
+        /* Leichter, weicher Hover-Effekt */
+        .logo:hover img {
+            box-shadow: 
+                0 0 6px 1px #ffffff, 
+                0 0 16px 3px rgba(255, 255, 255, 0.4);
+            transform: scale(1.02);
         }
 
         .dev-badge {
@@ -297,7 +316,7 @@
             overflow: hidden;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            padding: 13px 0; margin: 4rem 0;
+            padding: 13px 0; margin: 4rem 0 2rem;
             background: var(--bg-card);
         }
         .marquee-track {
@@ -309,6 +328,34 @@
         }
         .marquee-track .hl { color: var(--accent); }
         @keyframes mq { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+
+        /* LARGE LOGO SECTION */
+        .large-logo-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 5% 4rem;
+        }
+        
+        .large-logo-img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            display: block;
+            background-color: #ffffff;
+            border-radius: 16px; /* Stärkere Abrundung für große Darstellung */
+            box-shadow: 
+                0 0 10px 2px #ffffff, 
+                0 0 40px 10px rgba(255, 255, 255, 0.15);
+            transition: transform 0.5s var(--ease), box-shadow 0.5s var(--ease);
+        }
+
+        .large-logo-img:hover {
+            transform: translateY(-8px);
+            box-shadow: 
+                0 0 15px 3px #ffffff, 
+                0 0 60px 15px rgba(255, 255, 255, 0.25);
+        }
 
         /* SECTION SHARED */
         .section { padding: 5rem 0; }
@@ -414,11 +461,19 @@
             display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem;
         }
         .footer-logo { display: flex; align-items: center; font-weight: 800; font-size: 1.05rem; letter-spacing: -0.03em; }
+        
+        /* Der gleiche dezentere Effekt für den Footer */
         .footer-logo img {
             height: auto;
             max-height: 35px;
             display: block;
+            background-color: #ffffff;
+            border-radius: 4px;
+            box-shadow: 
+                0 0 4px 1px #ffffff, 
+                0 0 10px 2px rgba(255, 255, 255, 0.3);
         }
+
         .footer-r { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-align: right; line-height: 1.9; }
 
         /* RESPONSIVE */
@@ -436,8 +491,18 @@
             nav { padding: 0.8rem 5%; }
             .nav-left { gap: 0.7rem; }
             
-            .logo img { max-height: 35px; }
+            .logo img { 
+                max-height: 35px; 
+                /* Auf dem Handy nochmals minimal feiner */
+                box-shadow: 0 0 3px 1px #ffffff, 0 0 8px 2px rgba(255, 255, 255, 0.3);
+            }
             
+            /* Großes Logo auf dem Handy etwas kleiner */
+            .large-logo-img {
+                max-width: 180px;
+                border-radius: 12px;
+            }
+
             .dev-badge { display: none; }
             
             .feat-grid { grid-template-columns: 1fr; gap: 1px; }
@@ -497,7 +562,7 @@
         <div class="hero-glow2"></div>
         <div class="container">
             <div class="fade-in">
-                <div class="tag-line" data-i18n="h_tag">chromaFX — Frühe Entwicklungsphase</div>
+                <div class="tag-line" data-i18n="h_tag">chromaFX — Entwicklungsphase</div>
                 <h1 class="hero-title">
                     <span data-i18n="h_t1">Bilder bearbeiten.</span><br>
                     <span class="hl" data-i18n="h_t2">Wie du willst.</span>
@@ -523,6 +588,11 @@
             <span class="hl">RAW-Support</span>&nbsp;·&nbsp; Tonwertkurven &nbsp;·&nbsp; <span class="hl">Rauschreduktion</span> &nbsp;·&nbsp; Alben &nbsp;·&nbsp; <span class="hl">Vor/Nachher</span> &nbsp;·&nbsp; Vignette &nbsp;·&nbsp; <span class="hl">Histogramm</span> &nbsp;·&nbsp; Split-Toning &nbsp;·&nbsp; <span class="hl">EXIF-Anzeige</span> &nbsp;·&nbsp; Bildsuche &nbsp;·&nbsp; <span class="hl">Zuschneiden</span> &nbsp;·&nbsp; Objektivkorrektur &nbsp;·&nbsp;
             <span class="hl">RAW-Support</span>&nbsp;·&nbsp; Tonwertkurven &nbsp;·&nbsp; <span class="hl">Rauschreduktion</span> &nbsp;·&nbsp; Alben &nbsp;·&nbsp; <span class="hl">Vor/Nachher</span> &nbsp;·&nbsp; Vignette &nbsp;·&nbsp; <span class="hl">Histogramm</span> &nbsp;·&nbsp; Split-Toning &nbsp;·&nbsp; <span class="hl">EXIF-Anzeige</span> &nbsp;·&nbsp; Bildsuche &nbsp;·&nbsp; <span class="hl">Zuschneiden</span> &nbsp;·&nbsp; Objektivkorrektur &nbsp;·&nbsp;
         </div>
+    </div>
+
+    <!-- HIER IST DAS NEUE GROSSE LOGO -->
+    <div class="large-logo-section fade-in">
+        <img src="chromaFX.png" alt="chromaFX App Icon" class="large-logo-img">
     </div>
 
     <section class="section">
@@ -830,4 +900,4 @@
     }
 </script>
 </body>
-</html>
+</html>v
