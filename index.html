@@ -215,6 +215,7 @@
         #view-features { display: none; padding-top: 100px; min-height: 80vh; }
         #view-roadmap  { display: none; padding-top: 100px; min-height: 80vh; }
         #view-contact  { display: none; padding-top: 100px; min-height: 80vh; }
+        #view-imprint  { display: none; padding-top: 100px; min-height: 80vh; }
 
         /* HERO */
         .hero {
@@ -475,6 +476,8 @@
         }
 
         .footer-r { font-family: var(--mono); font-size: 0.72rem; color: var(--muted); text-align: right; line-height: 1.9; }
+        .footer-links a { color: inherit; text-decoration: none; transition: color 0.2s; }
+        .footer-links a:hover { color: var(--accent); }
 
         /* RESPONSIVE */
         @media (max-width: 900px) {
@@ -530,6 +533,7 @@
             <li><a href="#" class="menu-link" onclick="switchView('roadmap')" data-i18n="m_road">Entwicklungsstand</a></li>
             <li><a href="#" class="menu-link" onclick="switchView('contact')" data-i18n="m_ct">Kontakt</a></li>
             <li><a href="https://whatsapp.com/channel/0029Vb7mjkM4o7qO78tl3K16" target="_blank" class="menu-link" data-i18n="m_wa">WhatsApp Kanal</a></li>
+            <li><a href="#" class="menu-link" onclick="switchView('imprint')" data-i18n="m_imp">Impressum</a></li>
         </ul>
         <div class="menu-footer" data-i18n="m_foot">chromaFX · Freeware · Kein Download in der Entwicklungsphase</div>
     </div>
@@ -725,7 +729,7 @@
                     </div>
                     <div class="ct-item">
                         <div class="ct-label" data-i18n="ct_mail">E-Mail</div>
-                        <a class="ct-val" href="mailto:chromaFX@mail.de">chromaFX@mail.de</a>
+                        <a class="ct-val" href="mailto:chromafx@mail.de">chromafx@mail.de</a>
                     </div>
                 </div>
                 <div>
@@ -747,13 +751,36 @@
     </div>
 </div>
 
+<!-- ==================== VIEW: IMPRESSUM ==================== -->
+<div id="view-imprint">
+    <div class="container">
+        <div style="max-width: 700px; margin: 0 auto;" class="fade-in">
+            <div class="sec-label" data-i18n="imp_label">Rechtliches</div>
+            <h2 class="sec-title" data-i18n="imp_title">Impressum</h2>
+            
+            <div style="margin-top: 3rem; line-height: 1.8; color: var(--muted); font-size: 0.95rem;">
+                <p><strong style="color: var(--text);">Angaben gemäß § 5 TMG</strong></p>
+                <p style="margin-top: 1rem;">
+                    Dominik Schrödel<br>
+                    Kirchröttenbach Straße D 42<br>
+                    91220 Schnaittach
+                </p>
+                <p style="margin-top: 1.5rem;">
+                    <strong style="color: var(--text);">Kontakt</strong><br>
+                    E-Mail: <a href="mailto:chromafx@mail.de" style="color: var(--accent); text-decoration: none;">chromafx@mail.de</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
     <div class="footer-logo">
         <img src="chromaFX.png" alt="chromaFX Logo">
     </div>
-    <div class="footer-r">
-        <div>© 2026 Dominik Schrödel. <span data-i18n="f_rights">Alle Rechte vorbehalten.</span></div>
+    <div class="footer-r footer-links">
+        <div>© 2026 Dominik Schrödel. <span data-i18n="f_rights">Alle Rechte vorbehalten.</span> | <a href="#" onclick="switchView('imprint'); return false;" data-i18n="f_imp">Impressum</a></div>
         <div data-i18n="f_note">Freeware · Kein Download in der Entwicklungsphase.</div>
     </div>
 </footer>
@@ -763,7 +790,7 @@
 
     function switchView(v) {
         document.body.classList.remove('nav-open');
-        const views =['home', 'features', 'roadmap', 'contact'];
+        const views =['home', 'features', 'roadmap', 'contact', 'imprint'];
         views.forEach(n => {
             document.getElementById('view-' + n).style.display = (n === v) ? 'block' : 'none';
         });
@@ -773,7 +800,7 @@
     const T = {
         de: {
             badge: 'In Entwicklung', 
-            m_home:'Startseite', m_feat:'Features', m_road:'Entwicklungsstand', m_ct:'Kontakt', m_wa:'WhatsApp Kanal',
+            m_home:'Startseite', m_feat:'Features', m_road:'Entwicklungsstand', m_ct:'Kontakt', m_wa:'WhatsApp Kanal', m_imp:'Impressum',
             m_foot:'chromaFX · Freeware · Kein Download in der Entwicklungsphase',
             h_tag:'chromaFX — Frühe Entwicklungsphase', h_t1:'Bilder bearbeiten.', h_t2:'Wie du willst.',
             h_sub:'chromaFX ist ein leistungsstarker RAW-Bildeditor mit Tonwertkurven, Rauschreduktion, Alben-Verwaltung, Vor/Nachher-Vergleich und vielem mehr — aktuell im Aufbau.',
@@ -828,11 +855,12 @@
             ct_sub:'chromaFX ist ein Einzelprojekt.',
             ct_dev:'Entwickler', ct_mail:'E-Mail', ct_loc:'Standort', ct_locv:'Deutschland', ct_wa_label:'Community', ct_wa_val:'WhatsApp Kanal beitreten',
             ct_proj:'Projekt', ct_lic:'Lizenz', ct_licv:'Freeware',
+            imp_label: 'Rechtliches', imp_title: 'Impressum', f_imp: 'Impressum',
             f_rights:'Alle Rechte vorbehalten.', f_note:'Freeware · Kein Download in der Entwicklungsphase.'
         },
         en: {
             badge: 'In Development',
-            m_home:'Home', m_feat:'Features', m_road:'Dev Status', m_ct:'Contact', m_wa:'WhatsApp Channel',
+            m_home:'Home', m_feat:'Features', m_road:'Dev Status', m_ct:'Contact', m_wa:'WhatsApp Channel', m_imp:'Imprint',
             m_foot:'chromaFX · Freeware · No download during development',
             h_tag:'chromaFX — Early Development Stage', h_t1:'Edit images.', h_t2:'Your way.',
             h_sub:'chromaFX is a powerful RAW image editor with tone curves, noise reduction, and more.',
@@ -887,6 +915,7 @@
             ct_sub:'chromaFX is a solo project.',
             ct_dev:'Developer', ct_mail:'E-Mail', ct_loc:'Location', ct_locv:'Germany', ct_wa_label:'Community', ct_wa_val:'Join WhatsApp Channel',
             ct_proj:'Project', ct_lic:'License', ct_licv:'Freeware',
+            imp_label: 'Legal Info', imp_title: 'Imprint', f_imp: 'Imprint',
             f_rights:'All rights reserved.', f_note:'Freeware · No download during development.'
         }
     };
@@ -900,4 +929,4 @@
     }
 </script>
 </body>
-</html>v
+</html>
