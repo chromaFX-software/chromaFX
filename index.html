@@ -6,8 +6,8 @@
     <title>chromaFX — Bildbearbeitung neu gedacht | RAW Editor für Windows & Linux</title>
 
     <!-- SEO Optimierung -->
-    <meta name="description" content="chromaFX ist ein leistungsstarker, kostenloser RAW-Bildeditor für Windows und Linux. Mit Tonwertkurven, Rauschreduktion und Alben-Verwaltung. Jetzt Entwicklung verfolgen.">
-    <meta name="keywords" content="Bildbearbeitung, RAW Editor, chromaFX, Fotobearbeitung, Freeware, Windows, Linux, Tonwertkurven, Bildverwaltung">
+    <meta name="description" content="chromaFX ist ein leistungsstarker, kostenloser RAW-Bildeditor für Windows und Linux. Mit GPU-Beschleunigung, Fokus-Stacking, MIDI-Support und KI-Masken. Jetzt Entwicklung verfolgen.">
+    <meta name="keywords" content="Bildbearbeitung, RAW Editor, chromaFX, Fotobearbeitung, Freeware, Windows, Linux, Fokus-Stacking, MIDI Controller, OpenCL, Tone Mapping">
     <meta name="author" content="Dominik Schrödel">
     <meta name="robots" content="index, follow">
 
@@ -360,7 +360,7 @@
         .hero-sub {
             font-size: clamp(0.95rem, 3vw, 1.1rem);
             color: var(--muted);
-            max-width: 540px;
+            max-width: 580px;
             margin-bottom: 2.5rem;
             line-height: 1.75;
         }
@@ -456,7 +456,7 @@
         .marquee-track {
             display: flex;
             gap: 2.5rem;
-            animation: mq 28s linear infinite;
+            animation: mq 32s linear infinite;
             font-family: var(--mono);
             font-size: 0.82rem;
             color: var(--muted);
@@ -639,8 +639,8 @@
         }
         .s-wip {
             color: var(--accent);
-            border-color: rgba(232, 255, 71, 0.25);
-            background: rgba(232, 255, 71, 0.06);
+            border-color: rgba(77, 143, 255, 0.25);
+            background: rgba(77, 143, 255, 0.06);
         }
         .s-plan {
             color: var(--muted);
@@ -687,7 +687,7 @@
             color: var(--accent);
         }
         .spec-val.o {
-            color: var(--accent);
+            color: var(--whatsapp);
         }
 
         /* CONTACT */
@@ -953,7 +953,7 @@
                         <span class="hl" data-i18n="h_t2">Wie du willst.</span>
                     </h1>
                     <p class="hero-sub" data-i18n="h_sub">
-                        chromaFX ist ein leistungsstarker RAW-Bildeditor mit Tonwertkurven, Rauschreduktion, Alben-Verwaltung, Vor/Nachher-Vergleich und vielem mehr — aktuell im Aufbau.
+                        chromaFX ist ein leistungsstarker RAW-Bildeditor mit GPU-Beschleunigung, Fokus-Stacking, Tiefenmasken, MIDI-Support und vielem mehr — aktuell in der Entwicklungsphase.
                     </p>
                     <div class="cta-group">
                         <a href="#" class="btn-p" onclick="switchView('features')" data-i18n="h_btn1">Features entdecken</a>
@@ -963,15 +963,15 @@
                             <span data-i18n="h_btn_wa">Community</span>
                         </a>
                     </div>
-                    <p class="hero-note" data-i18n="h_note">Für Windows & Linux · Mac in Entwicklung · Freeware</p>
+                    <p class="hero-note" data-i18n="h_note">Für Windows & Linux · Mac in Planung · Freeware</p>
                 </div>
             </div>
         </section>
 
         <div class="marquee-wrap">
             <div class="marquee-track">
-                <span class="hl">RAW-Support</span>&nbsp;·&nbsp; Tonwertkurven &nbsp;·&nbsp; <span class="hl">Rauschreduktion</span> &nbsp;·&nbsp; Alben &nbsp;·&nbsp; <span class="hl">Vor/Nachher</span> &nbsp;·&nbsp; Vignette &nbsp;·&nbsp; <span class="hl">Histogramm</span> &nbsp;·&nbsp; Split-Toning &nbsp;·&nbsp; <span class="hl">EXIF-Anzeige</span> &nbsp;·&nbsp; Bildsuche &nbsp;·&nbsp; <span class="hl">Zuschneiden</span> &nbsp;·&nbsp; Objektivkorrektur &nbsp;·&nbsp;
-                <span class="hl">RAW-Support</span>&nbsp;·&nbsp; Tonwertkurven &nbsp;·&nbsp; <span class="hl">Rauschreduktion</span> &nbsp;·&nbsp; Alben &nbsp;·&nbsp; <span class="hl">Vor/Nachher</span> &nbsp;·&nbsp; Vignette &nbsp;·&nbsp; <span class="hl">Histogramm</span> &nbsp;·&nbsp; Split-Toning &nbsp;·&nbsp; <span class="hl">EXIF-Anzeige</span> &nbsp;·&nbsp; Bildsuche &nbsp;·&nbsp; <span class="hl">Zuschneiden</span> &nbsp;·&nbsp; Objektivkorrektur &nbsp;·&nbsp;
+                <span class="hl">Fokus-Stacking</span>&nbsp;·&nbsp; MIDI-Support &nbsp;·&nbsp; <span class="hl">GPU-OpenCL</span> &nbsp;·&nbsp; Tiefenmasken &nbsp;·&nbsp; <span class="hl">Tone-Mapping</span> &nbsp;·&nbsp; Smart Select &nbsp;·&nbsp; Batch Sync &nbsp;·&nbsp; KI-Analyse &nbsp;·&nbsp; Tethered Shooting &nbsp;·&nbsp; 
+                <span class="hl">Fokus-Stacking</span>&nbsp;·&nbsp; MIDI-Support &nbsp;·&nbsp; <span class="hl">GPU-OpenCL</span> &nbsp;·&nbsp; Tiefenmasken &nbsp;·&nbsp; <span class="hl">Tone-Mapping</span> &nbsp;·&nbsp; Smart Select &nbsp;·&nbsp; Batch Sync &nbsp;·&nbsp; KI-Analyse &nbsp;·&nbsp; Tethered Shooting &nbsp;·&nbsp; 
             </div>
         </div>
 
@@ -989,18 +989,18 @@
                 <div class="feat-grid fade-in">
                     <div class="feat-card">
                         <div class="feat-num">01</div>
-                        <div class="feat-title" data-i18n="ht_f1t">RAW-Formate öffnen</div>
-                        <div class="feat-desc" data-i18n="ht_f1d">Direkte Unterstützung für .CR2, .NEF, .ARW und weitere Kamera-RAW-Formate.</div>
+                        <div class="feat-title" data-i18n="ht_f1t">RAW & ICC-Pipeline</div>
+                        <div class="feat-desc" data-i18n="ht_f1d">Direkte Unterstützung für .CR2, .NEF, .ARW. Volle Lineares-Licht-Pipeline mit ICC-Farbmanagement.</div>
                     </div>
                     <div class="feat-card">
                         <div class="feat-num">02</div>
-                        <div class="feat-title" data-i18n="ht_f2t">Tonwertkurven</div>
-                        <div class="feat-desc" data-i18n="ht_f2d">Interaktiver Kurveneditor für alle Kanäle: Master, Rot, Grün und Blau.</div>
+                        <div class="feat-title" data-i18n="ht_f2t">MIDI & GPU-Engine</div>
+                        <div class="feat-desc" data-i18n="ht_f2d">Hardware-Beschleunigung via OpenCL und nativer Support für MIDI-Controller (Loupedeck, Behringer).</div>
                     </div>
                     <div class="feat-card">
                         <div class="feat-num">03</div>
-                        <div class="feat-title" data-i18n="ht_f3t">Alben & Galerie</div>
-                        <div class="feat-desc" data-i18n="ht_f3d">Bilder in Alben organisieren, mit Farblabels, Bewertungen und Suchfunktion.</div>
+                        <div class="feat-title" data-i18n="ht_f3t">Fokus-Stacking & KI</div>
+                        <div class="feat-desc" data-i18n="ht_f3d">Tethered Shooting via Kamera, GrabCut-Objektauswahl und smarte KI-Hintergrundanalyse.</div>
                     </div>
                 </div>
                 <div style="margin-top: 2rem;" class="fade-in">
@@ -1016,27 +1016,27 @@
             <div class="fade-in">
                 <div class="sec-label" data-i18n="f_label">Features</div>
                 <h2 class="sec-title" data-i18n="f_title">Volle Kontrolle über<br>jedes Bild.</h2>
-                <p class="sec-sub" data-i18n="f_sub">Alle Werkzeuge für professionelle Bildbearbeitung — kompakt und schnell.</p>
+                <p class="sec-sub" data-i18n="f_sub">Alle Werkzeuge für professionelle Bildbearbeitung — kompakt und blitzschnell.</p>
             </div>
             <div class="feat-grid fade-in">
-                <div class="feat-card"><div class="feat-num">01</div><div class="feat-title" data-i18n="f1t">RAW-Formate öffnen</div><div class="feat-desc" data-i18n="f1d">Direkte Unterstützung für .CR2, .NEF, .ARW und andere Kamera-RAW-Formate — ohne Vorkonvertierung.</div></div>
-                <div class="feat-card"><div class="feat-num">02</div><div class="feat-title" data-i18n="f2t">Tonwertkurven</div><div class="feat-desc" data-i18n="f2d">Präziser Kurveneditor für Master, Rot, Grün und Blau — interaktiv und in Echtzeit.</div></div>
-                <div class="feat-card"><div class="feat-num">03</div><div class="feat-title" data-i18n="f3t">Smarte Rauschreduktion</div><div class="feat-desc" data-i18n="f3d">Kantenbewusste Rauschreduktion, die Details erhält und nur echtes Bildrauschen entfernt.</div></div>
-                <div class="feat-card"><div class="feat-num">04</div><div class="feat-title" data-i18n="f4t">Alben & Galerie</div><div class="feat-desc" data-i18n="f4d">Bilder in Alben organisieren, mit Farblabels (Rot, Gelb, Grün) und Sternbewertungen versehen.</div></div>
-                <div class="feat-card"><div class="feat-num">05</div><div class="feat-title" data-i18n="f5t">Vor/Nachher-Vergleich</div><div class="feat-desc" data-i18n="f5d">Mehrere Bilder nebeneinander vergleichen — mit synchronisiertem Zoom und Scroll.</div></div>
-                <div class="feat-card"><div class="feat-num">06</div><div class="feat-title" data-i18n="f6t">Vignette</div><div class="feat-desc" data-i18n="f6d">Vignette mit einstellbarer Intensität und Größe für stimmungsvolle Bildränder.</div></div>
-                <div class="feat-card"><div class="feat-num">07</div><div class="feat-title" data-i18n="f7t">Live-Histogramm</div><div class="feat-desc" data-i18n="f7d">Echtzeit-Histogramm für alle Farbkanäle — präzise Belichtungskontrolle auf einen Blick.</div></div>
-                <div class="feat-card"><div class="feat-num">08</div><div class="feat-title" data-i18n="f8t">EXIF & Bildsuche</div><div class="feat-desc" data-i18n="f8d">EXIF-Daten direkt anzeigen: Kamera, Objektiv, Belichtungszeit, ISO. Bilder über Metadaten durchsuchen.</div></div>
-                <div class="feat-card"><div class="feat-num">09</div><div class="feat-title" data-i18n="f9t">Flexibler Export</div><div class="feat-desc" data-i18n="f9d">Als JPEG, PNG oder TIFF speichern — mit einstellbarer Qualität, Schärfung und Farbprofil (sRGB / AdobeRGB).</div></div>
-                <div class="feat-card"><div class="feat-num">10</div><div class="feat-title" data-i18n="f10t">Split-Toning</div><div class="feat-desc" data-i18n="f10d">Lichter und Tiefen unabhängig voneinander einfärben — für kreative Farbstimmungen und Filmlooks.</div></div>
-                <div class="feat-card"><div class="feat-num">11</div><div class="feat-title" data-i18n="f11t">Schwarz-Weiß-Konvertierung</div><div class="feat-desc" data-i18n="f11d">Steuerbarer S/W-Modus mit einstellbaren Kanalgewichten für Rot, Grün und Blau.</div></div>
-                <div class="feat-card"><div class="feat-num">12</div><div class="feat-title" data-i18n="f12t">Zuschneiden & Drehen</div><div class="feat-desc" data-i18n="f12d">Interaktives Zuschneiden mit freiem Seitenverhältnis und freier Rotation — inkl. Drittelsraster.</div></div>
-                <div class="feat-card"><div class="feat-num">13</div><div class="feat-title" data-i18n="f13t">Objektivkorrektur</div><div class="feat-desc" data-i18n="f13d">Automatische Profilkorrektur für Verzeichnung und Vignettierung über integrierte Lensfun-Datenbank.</div></div>
-                <div class="feat-card"><div class="feat-num">14</div><div class="feat-title" data-i18n="f14t">Pinsel-Masken</div><div class="feat-desc" data-i18n="f14d">Lokale Korrekturen mit frei gemalten Masken — gezielt nur die Bereiche bearbeiten, die du willst.</div></div>
-                <div class="feat-card"><div class="feat-num">15</div><div class="feat-title" data-i18n="f15t">Sättigung & Vibrance</div><div class="feat-desc" data-i18n="f15d">Separate Regler für Sättigung und Vibrance sowie individuelle Verstärkung für Grün- und Blautöne.</div></div>
-                <div class="feat-card"><div class="feat-num">16</div><div class="feat-title" data-i18n="f16t">Erweiterter HSL-Mixer</div><div class="feat-desc" data-i18n="f16d">8 Farbkanäle inkl. Pipetten-Werkzeug zur direkten Bildauswahl.</div></div>
-                <div class="feat-card"><div class="feat-num">17</div><div class="feat-title" data-i18n="f17t">Auto-Anpassung</div><div class="feat-desc" data-i18n="f17d">Smarte Bildanalyse korrigiert Belichtung und Kontrast automatisch.</div></div>
-                <div class="feat-card"><div class="feat-num">18</div><div class="feat-title" data-i18n="f18t">Verlaufsfilter</div><div class="feat-desc" data-i18n="f18d">Lineare und radiale Verläufe direkt im Bild ziehen.</div></div>
+                <div class="feat-card"><div class="feat-num">01</div><div class="feat-title" data-i18n="f1t">RAW & Post-Pipeline</div><div class="feat-desc" data-i18n="f1d">Direkte Unterstützung für .CR2, .NEF, .ARW. Volle Lineares-Licht-Pipeline mit ICC-Farbmanagement.</div></div>
+                <div class="feat-card"><div class="feat-num">02</div><div class="feat-title" data-i18n="f2t">Tone-Mapping & Kurven</div><div class="feat-desc" data-i18n="f2d">7 Operatoren (Filmic, ACES, Drago) für HDR/Log-Bilder und interaktive RGB-Tonwertkurven.</div></div>
+                <div class="feat-card"><div class="feat-num">03</div><div class="feat-title" data-i18n="f3t">GPU-Beschleunigung</div><div class="feat-desc" data-i18n="f3d">Blitzschnelle OpenCL-Beschleunigung (cv2.UMat) für Effekte und ein responsives 1:1 Live-Preview.</div></div>
+                <div class="feat-card"><div class="feat-num">04</div><div class="feat-title" data-i18n="f4t">Fokus-Stacking & Tethered</div><div class="feat-desc" data-i18n="f4d">Makros direkt von der Kamera importieren (gphoto2) und via Laplacian/Pyramid-Blending stacken.</div></div>
+                <div class="feat-card"><div class="feat-num">05</div><div class="feat-title" data-i18n="f5t">Masken & Smart Select</div><div class="feat-desc" data-i18n="f5d">Intelligente Objektauswahl per Klick (GrabCut) und Tiefenmasken (Schärfe & Apple HEIC).</div></div>
+                <div class="feat-card"><div class="feat-num">06</div><div class="feat-title" data-i18n="f6t">MIDI-Controller Support</div><div class="feat-desc" data-i18n="f6d">Nahtlose Integration von Loupedeck, Behringer oder KORG. Alle Slider frei über MIDI-Learn zuweisbar.</div></div>
+                <div class="feat-card"><div class="feat-num">07</div><div class="feat-title" data-i18n="f7t">Virtuelle Kopien & Alben</div><div class="feat-desc" data-i18n="f7d">Verschiedene Looks eines Bildes testen ohne die Datei zu duplizieren. Smarte Filter & Favoriten.</div></div>
+                <div class="feat-card"><div class="feat-num">08</div><div class="feat-title" data-i18n="f8t">Batch-Sync & Tracking</div><div class="feat-desc" data-i18n="f8d">Einstellungen auf Serien übertragen. Lokale Masken werden per ORB/RANSAC automatisch verschoben.</div></div>
+                <div class="feat-card"><div class="feat-num">09</div><div class="feat-title" data-i18n="f9t">Reparaturpinsel</div><div class="feat-desc" data-i18n="f9d">Content-Aware Fill und Klon-Stempel. Weiche Kantenübergänge per Guided Filter (Refine Edge).</div></div>
+                <div class="feat-card"><div class="feat-num">10</div><div class="feat-title" data-i18n="f10t">S/W-Mixer & Color Grading</div><div class="feat-desc" data-i18n="f10d">8-Kanal S/W-Konvertierung, 3-Wege Color Wheels und RGB-Kamerakalibrierung für kinoreife Looks.</div></div>
+                <div class="feat-card"><div class="feat-num">11</div><div class="feat-title" data-i18n="f11t">Export-Profile & Metadaten</div><div class="feat-desc" data-i18n="f11d">Voreinstellungen für Web & Druck. Kompletter CSV/JSON-Export aller Metadaten, Tags und EXIF-Infos.</div></div>
+                <div class="feat-card"><div class="feat-num">12</div><div class="feat-title" data-i18n="f12t">Compare- & Culling-Modus</div><div class="feat-desc" data-i18n="f12d">Synchronisierter Zoom bei Mehrbild-Vergleichen. Schärfe-Peaking und Fokuspunkt-Anzeige.</div></div>
+                <div class="feat-card"><div class="feat-num">13</div><div class="feat-title" data-i18n="f13t">Objektivkorrektur</div><div class="feat-desc" data-i18n="f13d">Automatische Profilkorrektur für Verzeichnung und Vignettierung (integrierte Lensfun-Datenbank).</div></div>
+                <div class="feat-card"><div class="feat-num">14</div><div class="feat-title" data-i18n="f14t">Proaktive KI-Analyse</div><div class="feat-desc" data-i18n="f14d">Hintergrund-Check von Schärfe, Belichtung und Horizont. Tipps im eXplainable AI (XAI) Assistenten.</div></div>
+                <div class="feat-card"><div class="feat-num">15</div><div class="feat-title" data-i18n="f15t">Live-Histogramm & Gamut</div><div class="feat-desc" data-i18n="f15d">Echtzeit-Histogramm, Clipping-Warnungen und Out-of-Gamut-Anzeige für volle Belichtungskontrolle.</div></div>
+                <div class="feat-card"><div class="feat-num">16</div><div class="feat-title" data-i18n="f16t">Smarte Rauschreduktion</div><div class="feat-desc" data-i18n="f16d">Kantenbewusste Rauschreduktion im LAB-Farbraum. Erhält Details und entfernt Farbrauschen.</div></div>
+                <div class="feat-card"><div class="feat-num">17</div><div class="feat-title" data-i18n="f17t">Auto-Enhance & Stile</div><div class="feat-desc" data-i18n="f17d">10 intelligente Presets (Filmlook, Landschaft, Portrait) mit steuerbarem KI-Fade-Regler.</div></div>
+                <div class="feat-card"><div class="feat-num">18</div><div class="feat-title" data-i18n="f18t">Flexible Geometrie</div><div class="feat-desc" data-i18n="f18d">7 Zuschnitt-Hilfslinien (Fibonacci, Goldener Schnitt), Social-Media-Crop und Perspektivkorrektur.</div></div>
             </div>
             <div class="dev-notice fade-in">
                 <div class="dev-notice-bar"></div>
@@ -1055,587 +1055,4 @@
             </div>
             <div class="rm-list fade-in">
                 <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done">Fertig</div><div><div class="rm-label" data-i18n="r1l">RAW-Öffnen & Grundbearbeitung</div><div class="rm-desc" data-i18n="r1d">Helligkeit, Kontrast, Weißpunkt, Schwarzpunkt, Lichter, Tiefen</div></div></div>
-                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done2">Fertig</div><div><div class="rm-label" data-i18n="r2l">Tonwertkurven & Live-Histogramm</div><div class="rm-desc" data-i18n="r2d">Interaktiver Kurveneditor mit getrennten RGB-Kanälen</div></div></div>
-                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done3">Fertig</div><div><div class="rm-label" data-i18n="r3l">Alben, Suche & Farblabels</div><div class="rm-desc" data-i18n="r3d">Galerie-Verwaltung mit Bewertungen und Metadaten-Suche</div></div></div>
-                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done4">Fertig</div><div><div class="rm-label" data-i18n="r4l">Rauschreduktion & Schärfe</div><div class="rm-desc" data-i18n="r4d">Kantenbewusste Rauschreduktion und Unsharp-Mask-Schärfung</div></div></div>
-                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done5">Fertig</div><div><div class="rm-label" data-i18n="r5l">Split-Toning & S/W-Konvertierung</div><div class="rm-desc" data-i18n="r5d">Lichter/Tiefen-Tönung und steuerbarer Schwarz-Weiß-Modus</div></div></div>
-                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done6">Fertig</div><div><div class="rm-label" data-i18n="r6l">Zuschneiden & Drehen</div><div class="rm-desc" data-i18n="r6d">Freies Zuschneiden mit Drittelsraster und Freirotation</div></div></div>
-                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done7">Fertig</div><div><div class="rm-label" data-i18n="r7l">Objektivkorrektur-Profile</div><div class="rm-desc" data-i18n="r7d">Automatische Korrektur über Lensfun-Datenbank</div></div></div>
-                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done8">Fertig</div><div><div class="rm-label" data-i18n="r8l">Pinsel-Masken</div><div class="rm-desc" data-i18n="r8d">Lokale Korrekturen mit frei gemalten Masken</div></div></div>
-                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done9">Fertig</div><div><div class="rm-label" data-i18n="r9l">Export mit Farbprofil</div><div class="rm-desc" data-i18n="r9d">JPEG / PNG / TIFF mit sRGB oder AdobeRGB, Schärfung beim Export</div></div></div>
-                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done10">Fertig</div><div><div class="rm-label" data-i18n="r10l">Performance & Stabilität</div><div class="rm-desc" data-i18n="r10d">Schnelle Ladezeiten, Speicherverwaltung, Fehlerbehandlung</div></div></div>
-                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done11">Fertig</div><div><div class="rm-label" data-i18n="r11l">Verlaufsfilter</div><div class="rm-desc" data-i18n="r11d">Gerichtete Anpassungen (Linear & Radial) inkl. Live-Vorschau.</div></div></div>
-                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done12">Fertig</div><div><div class="rm-label" data-i18n="r13l">HDR, Panorama & Focus Stacking</div><div class="rm-desc" data-i18n="r13d">Nahtloses Zusammenfügen mehrerer Bilder.</div></div></div>
-                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done13">Fertig</div><div><div class="rm-label" data-i18n="r14l">Quick Culling Modus</div><div class="rm-desc" data-i18n="r14d">Schnelle Auswahl und Bewertung von Bildserien.</div></div></div>
-                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done14">Fertig</div><div><div class="rm-label" data-i18n="r15l">HSL & Weißabgleich mit Pipette</div><div class="rm-desc" data-i18n="r15d">Direkte Farbauswahl und neutraler Weißabgleich per Klick ins Bild.</div></div></div>
-                <div class="rm-item"><div class="rm-status s-wip" data-i18n="st_wip">In Arbeit</div><div><div class="rm-label" data-i18n="r16l">Luminanz- und Farbmasken</div><div class="rm-desc" data-i18n="r16d">Präzise Maskierung basierend auf Helligkeit und Farbwerten.</div></div></div>
-                <div class="rm-item"><div class="rm-status s-plan" data-i18n="st_plan">Geplant</div><div><div class="rm-label" data-i18n="r12l">Mac-Unterstützung</div><div class="rm-desc" data-i18n="r12d">macOS-Kompatibilität ist in Planung</div></div></div>
-            </div>
-            <div style="margin-top: 3rem;" class="fade-in">
-                <div class="specs-grid">
-                    <div class="spec-row"><span class="spec-key" data-i18n="sp1k">Betriebssystem</span><span class="spec-val" data-i18n="sp1v">Windows / Linux</span></div>
-                    <div class="spec-row"><span class="spec-key" data-i18n="sp2k">RAM</span><span class="spec-val">Min. 4 GB &nbsp;<span style="color:var(--muted);font-weight:400;font-size:0.82rem;" data-i18n="sp2r">/ Empf. 8 GB+</span></span></div>
-                    <div class="spec-row"><span class="spec-key" data-i18n="sp3k">Prozessor</span><span class="spec-val">Multicore (AVX2)</span></div>
-                    <div class="spec-row"><span class="spec-key" data-i18n="sp4k">Lizenz</span><span class="spec-val a" data-i18n="sp4v">Freeware</span></div>
-                    <div class="spec-row"><span class="spec-key" data-i18n="sp5k">Farbtiefe</span><span class="spec-val">32-Bit intern</span></div>
-                    <div class="spec-row"><span class="spec-key" data-i18n="sp6k">Status</span><span class="spec-val o" data-i18n="sp6v">In Entwicklung</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== VIEW: CONTACT ==================== -->
-    <div id="view-contact">
-        <div class="container">
-            <div style="max-width: 700px; margin: 0 auto;">
-                <div class="sec-label" data-i18n="ct_label">Kontakt</div>
-                <h2 class="sec-title" data-i18n="ct_title">Feedback<br>ist willkommen.</h2>
-                <p style="color:var(--muted); margin-bottom:3rem; font-size:0.95rem; line-height:1.75;" data-i18n="ct_sub">chromaFX ist ein Einzelprojekt. Wenn du Bugs findest, Ideen hast oder einfach Hallo sagen möchtest — schreib gerne.</p>
-
-                <div class="contact-grid">
-                    <div>
-                        <div class="ct-item">
-                            <div class="ct-label" data-i18n="ct_dev">Entwickler</div>
-                            <div class="ct-val">Dominik Schrödel</div>
-                        </div>
-                        <div class="ct-item">
-                            <div class="ct-label" data-i18n="ct_loc">Standort</div>
-                            <div class="ct-val" data-i18n="ct_locv">Deutschland</div>
-                        </div>
-                        <div class="ct-item">
-                            <div class="ct-label" data-i18n="ct_mail">E-Mail</div>
-                            <a class="ct-val" href="mailto:chromafx@mail.de">chromafx@mail.de</a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="ct-item">
-                            <div class="ct-label" data-i18n="ct_wa_label">Community</div>
-                            <a class="ct-val wa" href="https://whatsapp.com/channel/0029Vb7mjkM4o7qO78tl3K16" target="_blank" data-i18n="ct_wa_val">WhatsApp Kanal beitreten</a>
-                        </div>
-                        <div class="ct-item">
-                            <div class="ct-label" data-i18n="ct_proj">Projekt</div>
-                            <div class="ct-val">chromaFX</div>
-                        </div>
-                        <div class="ct-item">
-                            <div class="ct-label" data-i18n="ct_lic">Lizenz</div>
-                            <div class="ct-val" data-i18n="ct_licv">Freeware</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== VIEW: DATENSCHUTZ ==================== -->
-    <div id="view-privacy">
-        <div class="container">
-            <div class="legal-content fade-in">
-                <div class="sec-label" data-i18n="priv_label">Rechtliches</div>
-                <h2 class="sec-title" data-i18n="priv_title">Datenschutz&shy;erklärung</h2>
-
-                <p data-i18n="priv_intro">Der Schutz Ihrer persönlichen Daten ist mir ein wichtiges Anliegen. Ich behandele Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften, insbesondere der Datenschutz-Grundverordnung (DSGVO), des Bundesdatenschutzgesetzes (BDSG) und des Telekommunikation-Digitale-Dienste-Datenschutz-Gesetzes (TDDDG). Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und den Zweck der Verarbeitung von personenbezogenen Daten innerhalb dieses Onlineangebotes auf.</p>
-
-                <h3 data-i18n="priv_h1">1. Verantwortlicher</h3>
-                <p>
-                    <strong>Dominik Schrödel</strong><br>
-                    Kirchröttenbach Straße D 42<br>
-                    91220 Schnaittach<br>
-                    Deutschland<br>
-                    E-Mail: <a href="mailto:chromafx@mail.de">chromafx@mail.de</a>
-                </p>
-                <p data-i18n="priv_resp_note">Verantwortlicher im Sinne der DSGVO und anderer nationaler Datenschutzgesetze der Mitgliedsstaaten sowie sonstiger datenschutzrechtlicher Bestimmungen.</p>
-
-                <h3 data-i18n="priv_h2">2. Allgemeine Hinweise zur Datenverarbeitung</h3>
-                <p data-i18n="priv_h2_text">Ich erhebe und verarbeite personenbezogene Daten grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie meiner Inhalte und Leistungen erforderlich ist. Die Verarbeitung personenbezogener Daten erfolgt regelmäßig nur nach Einwilligung des Nutzers. Eine Ausnahme gilt in solchen Fällen, in denen eine vorherige Einholung einer Einwilligung aus tatsächlichen Gründen nicht möglich ist und die Verarbeitung der Daten durch gesetzliche Vorschriften gestattet ist.</p>
-
-                <h3 data-i18n="priv_h3">3. Bereitstellung der Website und Erstellung von Logfiles</h3>
-                <p data-i18n="priv_h3_text">Bei jedem Aufruf meiner Internetseite erfasst das System meines Hosting-Providers automatisiert Daten und Informationen vom Computersystem des aufrufenden Rechners. Folgende Daten werden hierbei erhoben: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage sowie die IP-Adresse. Die Daten werden ebenfalls in den Logfiles des Systems gespeichert. Eine Speicherung dieser Daten zusammen mit anderen personenbezogenen Daten des Nutzers findet nicht statt. Die Rechtsgrundlage für die vorübergehende Speicherung der Daten und der Logfiles ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung dieser Website).</p>
-
-                <h3 data-i18n="priv_h4">4. Kontaktaufnahme (E-Mail)</h3>
-                <p data-i18n="priv_h4_text">Bei Ihrer Kontaktaufnahme mit mir per E-Mail werden die von Ihnen mitgeteilten Daten (Ihre E-Mail-Adresse, ggf. Ihr Name und Ihre Telefonnummer sowie der Inhalt Ihrer Nachricht) von mir gespeichert, um Ihre Fragen zu beantworten bzw. Ihr Anliegen zu bearbeiten. Die in diesem Zusammenhang anfallenden Daten lösche ich, nachdem die Speicherung nicht mehr erforderlich ist, oder schränke die Verarbeitung ein, falls gesetzliche Aufbewahrungspflichten bestehen. Rechtsgrundlage für die Verarbeitung der Daten ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung / vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung Ihrer Anfrage).</p>
-
-                <h3 data-i18n="priv_h5">5. Externe Links</h3>
-                <p data-i18n="priv_h5_text">Meine Website enthält Links zu externen Websites Dritter (insbesondere WhatsApp). Auf die Verarbeitung Ihrer Daten auf diesen externen Plattformen habe ich keinen Einfluss. Für die Datenverarbeitung auf diesen Plattformen gelten ausschließlich die Datenschutzerklärungen der jeweiligen Anbieter. Bitte informieren Sie sich dort über die jeweiligen Datenschutzbestimmungen.</p>
-                <p data-i18n="priv_h5_wa">Insbesondere weise ich darauf hin, dass der WhatsApp-Kanal von der Meta Platforms, Inc. betrieben wird. Bei der Nutzung von WhatsApp gelten die Datenschutzrichtlinien von WhatsApp / Meta. Ich habe keinen Einfluss auf die dortige Datenverarbeitung.</p>
-
-                <h3 data-i18n="priv_h6">6. Rechte der betroffenen Person</h3>
-                <p data-i18n="priv_h6_text">Werden personenbezogene Daten von Ihnen verarbeitet, sind Sie Betroffener im Sinne der DSGVO und es stehen Ihnen folgende Rechte gegenüber dem Verantwortlichen zu:</p>
-                <ul>
-                    <li data-i18n="priv_r1"><strong>Auskunftsrecht (Art. 15 DSGVO):</strong> Sie können Auskunft über Ihre von mir verarbeiteten personenbezogenen Daten verlangen.</li>
-                    <li data-i18n="priv_r2"><strong>Recht auf Berichtigung (Art. 16 DSGVO):</strong> Sie können unverzüglich die Berichtigung unrichtiger oder Vervollständigung Ihrer bei mir gespeicherten personenbezogenen Daten verlangen.</li>
-                    <li data-i18n="priv_r3"><strong>Recht auf Löschung (Art. 17 DSGVO):</strong> Sie können die Löschung Ihrer bei mir gespeicherten personenbezogenen Daten verlangen.</li>
-                    <li data-i18n="priv_r4"><strong>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO):</strong> Sie können die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten verlangen.</li>
-                    <li data-i18n="priv_r5"><strong>Recht auf Datenübertragbarkeit (Art. 20 DSGVO):</strong> Sie haben das Recht, Ihre personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten.</li>
-                    <li data-i18n="priv_r6"><strong>Widerspruchsrecht (Art. 21 DSGVO):</strong> Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Sie betreffender personenbezogener Daten Widerspruch einzulegen.</li>
-                    <li data-i18n="priv_r7"><strong>Widerrufsrecht bei Einwilligungen (Art. 7 Abs. 3 DSGVO):</strong> Sie haben das Recht, eine erteilte Einwilligung jederzeit zu widerrufen.</li>
-                    <li data-i18n="priv_r8"><strong>Beschwerderecht bei der Aufsichtsbehörde (Art. 77 DSGVO):</strong> Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch mich zu beschweren.</li>
-                </ul>
-
-                <h3 data-i18n="priv_h7">7. Keine Cookies, kein Tracking</h3>
-                <p data-i18n="priv_h7_text">Diese Website verwendet keine Cookies und setzt keinerlei Tracking- oder Analyse-Tools ein. Es werden keine personenbezogenen Daten zu Marketing- oder Profiling-Zwecken verarbeitet.</p>
-
-                <h3 data-i18n="priv_h8">8. Aktualität und Änderung dieser Datenschutzerklärung</h3>
-                <p data-i18n="priv_h8_text">Diese Datenschutzerklärung ist aktuell gültig und hat den Stand April 2026. Durch die Weiterentwicklung meiner Website und Angebote oder aufgrund geänderter gesetzlicher beziehungsweise behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle Datenschutzerklärung kann jederzeit auf dieser Website von Ihnen abgerufen werden.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- ==================== VIEW: IMPRESSUM ==================== -->
-    <div id="view-imprint">
-        <div class="container">
-            <div class="legal-content fade-in">
-                <div class="sec-label" data-i18n="imp_label">Rechtliches</div>
-                <h2 class="sec-title" data-i18n="imp_title">Impressum</h2>
-
-                <h3 data-i18n="imp_h1">Angaben gemäß § 5 TMG</h3>
-                <p>
-                    <strong>Dominik Schrödel</strong><br>
-                    Kirchröttenbach Straße D 42<br>
-                    91220 Schnaittach<br>
-                    Deutschland
-                </p>
-
-                <h3 data-i18n="imp_h2">Kontakt</h3>
-                <p>
-                    E-Mail: <a href="mailto:chromafx@mail.de">chromafx@mail.de</a><br>
-                    Website: <a href="https://chromafx.de">chromafx.de</a>
-                </p>
-
-                <h3 data-i18n="imp_h3">Haftung für Inhalte</h3>
-                <p data-i18n="imp_h3_text">Als Diensteanbieter bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.</p>
-
-                <h3 data-i18n="imp_h4">Haftung für Links</h3>
-                <p data-i18n="imp_h4_text">Mein Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.</p>
-
-                <h3 data-i18n="imp_h5">Urheberrecht</h3>
-                <p data-i18n="imp_h5_text">Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.</p>
-
-                <h3 data-i18n="imp_h6">Haftungsausschluss für die Software (chromaFX)</h3>
-                <p data-i18n="imp_h6_text">Die Software chromaFX wird als Freeware kostenlos zur Verfügung gestellt. Die Nutzung erfolgt auf eigene Gefahr des Anwenders. Der Entwickler übernimmt keinerlei Gewährleistung oder Haftung für Schäden, die durch die Nutzung der Software entstehen könnten, soweit dies gesetzlich zulässig ist. Dies gilt insbesondere für Datenverluste, Schäden an Hard- oder Software sowie Folgeschäden jeglicher Art. Es wird empfohlen, vor der Bearbeitung von Bildern stets Sicherungskopien der Originaldateien anzufertigen. Die Software befindet sich teilweise noch in aktiver Entwicklung – Fehler und unerwartetes Verhalten können daher nicht ausgeschlossen werden.</p>
-
-                <h3 data-i18n="imp_h7">Streitschlichtung</h3>
-                <p data-i18n="imp_h7_text">Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
-    <footer>
-        <div class="footer-logo">
-            <img src="chromaFX.png" alt="chromaFX Logo">
-        </div>
-        <div class="footer-r footer-links">
-            <div>
-                © 2026 Dominik Schrödel. <span data-i18n="f_rights">Alle Rechte vorbehalten.</span>
-                &nbsp;|&nbsp;
-                <a href="#" onclick="switchView('privacy'); return false;" data-i18n="f_priv">Datenschutz</a>
-                &nbsp;|&nbsp;
-                <a href="#" onclick="switchView('imprint'); return false;" data-i18n="f_imp">Impressum</a>
-            </div>
-            <div data-i18n="f_note">Freeware · Kein Download in der Entwicklungsphase.</div>
-        </div>
-    </footer>
-
-    <script>
-        function toggleMenu() { document.body.classList.toggle('nav-open'); }
-
-        function switchView(v) {
-            document.body.classList.remove('nav-open');
-            const views = ['home', 'features', 'roadmap', 'contact', 'privacy', 'imprint'];
-            views.forEach(n => {
-                const el = document.getElementById('view-' + n);
-                if (el) el.style.display = (n === v) ? 'block' : 'none';
-            });
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        const T = {
-            de: {
-                badge: 'In Entwicklung',
-                m_home: 'Startseite',
-                m_feat: 'Features',
-                m_road: 'Entwicklungsstand',
-                m_ct: 'Kontakt',
-                m_wa: 'WhatsApp Kanal',
-                m_priv: 'Datenschutz',
-                m_imp: 'Impressum',
-                m_foot: 'chromaFX · Freeware · Kein Download in der Entwicklungsphase',
-                h_tag: 'chromaFX — Frühe Entwicklungsphase',
-                h_t1: 'Bilder bearbeiten.',
-                h_t2: 'Wie du willst.',
-                h_sub: 'chromaFX ist ein leistungsstarker RAW-Bildeditor mit Tonwertkurven, Rauschreduktion, Alben-Verwaltung, Vor/Nachher-Vergleich und vielem mehr — aktuell im Aufbau.',
-                h_btn1: 'Features entdecken',
-                h_btn2: 'Entwicklungsstand',
-                h_btn_wa: 'Community',
-                h_note: 'Für Windows & Linux · Mac in Entwicklung · Freeware',
-                ht_label: 'Was chromaFX kann',
-                ht_title: 'Volle Kontrolle.<br>Kein Kompromiss.',
-                ht_sub: 'Von RAW öffnen bis zum fertigen Export — alles in einem Programm.',
-                ht_f1t: 'RAW-Formate öffnen',
-                ht_f1d: 'Direkte Unterstützung für .CR2, .NEF, .ARW und weitere Kamera-RAW-Formate.',
-                ht_f2t: 'Tonwertkurven',
-                ht_f2d: 'Interaktiver Kurveneditor für alle Kanäle: Master, Rot, Grün und Blau.',
-                ht_f3t: 'Alben & Galerie',
-                ht_f3d: 'Bilder in Alben organisieren, mit Farblabels, Bewertungen und Suchfunktion.',
-                ht_more: 'Alle Features ansehen',
-                f_label: 'Features',
-                f_title: 'Volle Kontrolle über<br>jedes Bild.',
-                f_sub: 'Alle Werkzeuge für professionelle Bildbearbeitung — kompakt und schnell.',
-                f1t: 'RAW-Formate öffnen',
-                f1d: 'Direkte Unterstützung für .CR2, .NEF, .ARW und andere Kamera-RAW-Formate.',
-                f2t: 'Tonwertkurven',
-                f2d: 'Präziser Kurveneditor für Master, Rot, Grün und Blau — interaktiv und in Echtzeit.',
-                f3t: 'Smarte Rauschreduktion',
-                f3d: 'Kantenbewusste Rauschreduktion, die Details erhält.',
-                f4t: 'Alben & Galerie',
-                f4d: 'Bilder in Alben organisieren, mit Farblabels und Sternen.',
-                f5t: 'Vor/Nachher-Vergleich',
-                f5d: 'Mehrere Bilder nebeneinander vergleichen.',
-                f6t: 'Vignette',
-                f6d: 'Vignette mit einstellbarer Intensität und Größe.',
-                f7t: 'Live-Histogramm',
-                f7d: 'Echtzeit-Histogramm für alle Farbkanäle.',
-                f8t: 'EXIF & Bildsuche',
-                f8d: 'EXIF-Daten direkt anzeigen und durchsuchen.',
-                f9t: 'Flexibler Export',
-                f9d: 'Als JPEG, PNG oder TIFF speichern.',
-                f10t: 'Split-Toning',
-                f10d: 'Lichter und Tiefen unabhängig voneinander einfärben.',
-                f11t: 'Schwarz-Weiß-Konvertierung',
-                f11d: 'Steuerbarer S/W-Modus mit Kanalgewichten.',
-                f12t: 'Zuschneiden & Drehen',
-                f12d: 'Interaktives Zuschneiden und Freirotation.',
-                f13t: 'Objektivkorrektur',
-                f13d: 'Automatische Profilkorrektur über Lensfun.',
-                f14t: 'Pinsel-Masken',
-                f14d: 'Lokale Korrekturen mit frei gemalten Masken.',
-                f15t: 'Sättigung & Vibrance',
-                f15d: 'Regler für Sättigung, Vibrance und Farbprioritäten.',
-                f16t: 'Erweiterter HSL-Mixer',
-                f16d: '8 Farbkanäle inkl. Pipetten-Werkzeug zur direkten Bildauswahl.',
-                f17t: 'Auto-Anpassung',
-                f17d: 'Smarte Bildanalyse korrigiert Belichtung und Kontrast automatisch.',
-                f18t: 'Verlaufsfilter',
-                f18d: 'Lineare und radiale Verläufe direkt im Bild ziehen.',
-                dev_note: '<strong>Aktiv in Entwicklung:</strong> chromaFX befindet sich im Aufbau. Einige Features sind implementiert, aber noch nicht vollständig stabil. Das Programm wird kontinuierlich weiterentwickelt. Mac-Unterstützung ist in Planung.',
-                r_label: 'Entwicklungsstand',
-                r_title: 'Was schon steht.<br>Was noch kommt.',
-                r_sub: 'Ein ehrlicher Überblick.',
-                st_done: 'Fertig',
-                st_done2: 'Fertig',
-                st_done3: 'Fertig',
-                st_done4: 'Fertig',
-                st_done5: 'Fertig',
-                st_done6: 'Fertig',
-                st_done7: 'Fertig',
-                st_done8: 'Fertig',
-                st_done9: 'Fertig',
-                st_done10: 'Fertig',
-                st_done11: 'Fertig',
-                st_done12: 'Fertig',
-                st_done13: 'Fertig',
-                st_done14: 'Fertig',
-                st_wip: 'In Arbeit',
-                st_plan: 'Geplant',
-                r1l: 'RAW-Öffnen & Grundbearbeitung',
-                r1d: 'Helligkeit, Kontrast, Weißpunkt, etc.',
-                r2l: 'Tonwertkurven & Live-Histogramm',
-                r2d: 'Interaktiver Kurveneditor.',
-                r3l: 'Alben, Suche & Farblabels',
-                r3d: 'Galerie-Verwaltung.',
-                r4l: 'Rauschreduktion & Schärfe',
-                r4d: 'Kantenbewusste Reduktion.',
-                r5l: 'Split-Toning & S/W-Konvertierung',
-                r5d: 'Kreative Farbstimmungen.',
-                r6l: 'Zuschneiden & Drehen',
-                r6d: 'Zuschneiden mit Drittelsraster.',
-                r7l: 'Objektivkorrektur-Profile',
-                r7d: 'Lensfun-Datenbank.',
-                r8l: 'Pinsel-Masken',
-                r8d: 'Lokale Masken-Korrektur.',
-                r9l: 'Export mit Farbprofil',
-                r9d: 'JPEG/PNG/TIFF Export.',
-                r10l: 'Performance & Stabilität',
-                r10d: 'Schnelligkeit & Speicher.',
-                r11l: 'Verlaufsfilter',
-                r11d: 'Gerichtete Anpassungen (Linear & Radial) inkl. Live-Vorschau.',
-                r13l: 'HDR, Panorama & Focus Stacking',
-                r13d: 'Nahtloses Zusammenfügen mehrerer Bilder.',
-                r14l: 'Quick Culling Modus',
-                r14d: 'Schnelle Auswahl und Bewertung von Bildserien.',
-                r15l: 'HSL & Weißabgleich mit Pipette',
-                r15d: 'Direkte Farbauswahl und neutraler Weißabgleich per Klick ins Bild.',
-                r16l: 'Luminanz- und Farbmasken',
-                r16d: 'Präzise Maskierung basierend auf Helligkeit und Farbwerten.',
-                r12l: 'Mac-Unterstützung',
-                r12d: 'macOS-Kompatibilität ist in Planung.',
-                sp1k: 'Betriebssystem',
-                sp1v: 'Windows / Linux',
-                sp2k: 'RAM',
-                sp2r: '/ Empf. 8 GB+',
-                sp3k: 'Prozessor',
-                sp4k: 'Lizenz',
-                sp4v: 'Freeware',
-                sp5k: 'Farbtiefe',
-                sp6k: 'Status',
-                sp6v: 'In Entwicklung',
-                ct_label: 'Kontakt',
-                ct_title: 'Feedback<br>ist willkommen.',
-                ct_sub: 'chromaFX ist ein Einzelprojekt.',
-                ct_dev: 'Entwickler',
-                ct_mail: 'E-Mail',
-                ct_loc: 'Standort',
-                ct_locv: 'Deutschland',
-                ct_wa_label: 'Community',
-                ct_wa_val: 'WhatsApp Kanal beitreten',
-                ct_proj: 'Projekt',
-                ct_lic: 'Lizenz',
-                ct_licv: 'Freeware',
-                priv_label: 'Rechtliches',
-                priv_title: 'Datenschutz&shy;erklärung',
-                priv_intro: 'Der Schutz Ihrer persönlichen Daten ist mir ein wichtiges Anliegen. Ich behandele Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen Datenschutzvorschriften, insbesondere der Datenschutz-Grundverordnung (DSGVO), des Bundesdatenschutzgesetzes (BDSG) und des Telekommunikation-Digitale-Dienste-Datenschutz-Gesetzes (TDDDG). Diese Datenschutzerklärung klärt Sie über die Art, den Umfang und den Zweck der Verarbeitung von personenbezogenen Daten innerhalb dieses Onlineangebotes auf.',
-                priv_h1: '1. Verantwortlicher',
-                priv_resp_note: 'Verantwortlicher im Sinne der DSGVO und anderer nationaler Datenschutzgesetze der Mitgliedsstaaten sowie sonstiger datenschutzrechtlicher Bestimmungen.',
-                priv_h2: '2. Allgemeine Hinweise zur Datenverarbeitung',
-                priv_h2_text: 'Ich erhebe und verarbeite personenbezogene Daten grundsätzlich nur, soweit dies zur Bereitstellung einer funktionsfähigen Website sowie meiner Inhalte und Leistungen erforderlich ist. Die Verarbeitung personenbezogener Daten erfolgt regelmäßig nur nach Einwilligung des Nutzers. Eine Ausnahme gilt in solchen Fällen, in denen eine vorherige Einholung einer Einwilligung aus tatsächlichen Gründen nicht möglich ist und die Verarbeitung der Daten durch gesetzliche Vorschriften gestattet ist.',
-                priv_h3: '3. Bereitstellung der Website und Erstellung von Logfiles',
-                priv_h3_text: 'Bei jedem Aufruf meiner Internetseite erfasst das System meines Hosting-Providers automatisiert Daten und Informationen vom Computersystem des aufrufenden Rechners. Folgende Daten werden hierbei erhoben: Browsertyp und Browserversion, verwendetes Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage sowie die IP-Adresse. Die Daten werden ebenfalls in den Logfiles des Systems gespeichert. Eine Speicherung dieser Daten zusammen mit anderen personenbezogenen Daten des Nutzers findet nicht statt. Die Rechtsgrundlage für die vorübergehende Speicherung der Daten und der Logfiles ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung dieser Website).',
-                priv_h4: '4. Kontaktaufnahme (E-Mail)',
-                priv_h4_text: 'Bei Ihrer Kontaktaufnahme mit mir per E-Mail werden die von Ihnen mitgeteilten Daten (Ihre E-Mail-Adresse, ggf. Ihr Name und Ihre Telefonnummer sowie der Inhalt Ihrer Nachricht) von mir gespeichert, um Ihre Fragen zu beantworten bzw. Ihr Anliegen zu bearbeiten. Die in diesem Zusammenhang anfallenden Daten lösche ich, nachdem die Speicherung nicht mehr erforderlich ist, oder schränke die Verarbeitung ein, falls gesetzliche Aufbewahrungspflichten bestehen. Rechtsgrundlage für die Verarbeitung der Daten ist Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung / vorvertragliche Maßnahmen) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Beantwortung Ihrer Anfrage).',
-                priv_h5: '5. Externe Links',
-                priv_h5_text: 'Meine Website enthält Links zu externen Websites Dritter (insbesondere WhatsApp). Auf die Verarbeitung Ihrer Daten auf diesen externen Plattformen habe ich keinen Einfluss. Für die Datenverarbeitung auf diesen Plattformen gelten ausschließlich die Datenschutzerklärungen der jeweiligen Anbieter. Bitte informieren Sie sich dort über die jeweiligen Datenschutzbestimmungen.',
-                priv_h5_wa: 'Insbesondere weise ich darauf hin, dass der WhatsApp-Kanal von der Meta Platforms, Inc. betrieben wird. Bei der Nutzung von WhatsApp gelten die Datenschutzrichtlinien von WhatsApp / Meta. Ich habe keinen Einfluss auf die dortige Datenverarbeitung.',
-                priv_h6: '6. Rechte der betroffenen Person',
-                priv_h6_text: 'Werden personenbezogene Daten von Ihnen verarbeitet, sind Sie Betroffener im Sinne der DSGVO und es stehen Ihnen folgende Rechte gegenüber dem Verantwortlichen zu:',
-                priv_r1: '<strong>Auskunftsrecht (Art. 15 DSGVO):</strong> Sie können Auskunft über Ihre von mir verarbeiteten personenbezogenen Daten verlangen.',
-                priv_r2: '<strong>Recht auf Berichtigung (Art. 16 DSGVO):</strong> Sie können unverzüglich die Berichtigung unrichtiger oder Vervollständigung Ihrer bei mir gespeicherten personenbezogenen Daten verlangen.',
-                priv_r3: '<strong>Recht auf Löschung (Art. 17 DSGVO):</strong> Sie können die Löschung Ihrer bei mir gespeicherten personenbezogenen Daten verlangen.',
-                priv_r4: '<strong>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO):</strong> Sie können die Einschränkung der Verarbeitung Ihrer personenbezogenen Daten verlangen.',
-                priv_r5: '<strong>Recht auf Datenübertragbarkeit (Art. 20 DSGVO):</strong> Sie haben das Recht, Ihre personenbezogenen Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten.',
-                priv_r6: '<strong>Widerspruchsrecht (Art. 21 DSGVO):</strong> Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Sie betreffender personenbezogener Daten Widerspruch einzulegen.',
-                priv_r7: '<strong>Widerrufsrecht bei Einwilligungen (Art. 7 Abs. 3 DSGVO):</strong> Sie haben das Recht, eine erteilte Einwilligung jederzeit zu widerrufen.',
-                priv_r8: '<strong>Beschwerderecht bei der Aufsichtsbehörde (Art. 77 DSGVO):</strong> Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung Ihrer personenbezogenen Daten durch mich zu beschweren.',
-                priv_h7: '7. Keine Cookies, kein Tracking',
-                priv_h7_text: 'Diese Website verwendet keine Cookies und setzt keinerlei Tracking- oder Analyse-Tools ein. Es werden keine personenbezogenen Daten zu Marketing- oder Profiling-Zwecken verarbeitet.',
-                priv_h8: '8. Aktualität und Änderung dieser Datenschutzerklärung',
-                priv_h8_text: 'Diese Datenschutzerklärung ist aktuell gültig und hat den Stand April 2026. Durch die Weiterentwicklung meiner Website und Angebote oder aufgrund geänderter gesetzlicher beziehungsweise behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung zu ändern. Die jeweils aktuelle Datenschutzerklärung kann jederzeit auf dieser Website von Ihnen abgerufen werden.',
-                imp_label: 'Rechtliches',
-                imp_title: 'Impressum',
-                imp_h1: 'Angaben gemäß § 5 TMG',
-                imp_h2: 'Kontakt',
-                imp_h3: 'Haftung für Inhalte',
-                imp_h3_text: 'Als Diensteanbieter bin ich gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG bin ich als Diensteanbieter jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen. Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine diesbezügliche Haftung ist jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich diese Inhalte umgehend entfernen.',
-                imp_h4: 'Haftung für Links',
-                imp_h4_text: 'Mein Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Links umgehend entfernen.',
-                imp_h5: 'Urheberrecht',
-                imp_h5_text: 'Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet. Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden, werden die Urheberrechte Dritter beachtet. Insbesondere werden Inhalte Dritter als solche gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend entfernen.',
-                imp_h6: 'Haftungsausschluss für die Software (chromaFX)',
-                imp_h6_text: 'Die Software chromaFX wird als Freeware kostenlos zur Verfügung gestellt. Die Nutzung erfolgt auf eigene Gefahr des Anwenders. Der Entwickler übernimmt keinerlei Gewährleistung oder Haftung für Schäden, die durch die Nutzung der Software entstehen könnten, soweit dies gesetzlich zulässig ist. Dies gilt insbesondere für Datenverluste, Schäden an Hard- oder Software sowie Folgeschäden jeglicher Art. Es wird empfohlen, vor der Bearbeitung von Bildern stets Sicherungskopien der Originaldateien anzufertigen. Die Software befindet sich teilweise noch in aktiver Entwicklung – Fehler und unerwartetes Verhalten können daher nicht ausgeschlossen werden.',
-                imp_h7: 'Streitschlichtung',
-                imp_h7_text: 'Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. Ich bin nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.',
-                f_imp: 'Impressum',
-                f_priv: 'Datenschutz',
-                f_rights: 'Alle Rechte vorbehalten.',
-                f_note: 'Freeware · Kein Download in der Entwicklungsphase.'
-            },
-            en: {
-                badge: 'In Development',
-                m_home: 'Home',
-                m_feat: 'Features',
-                m_road: 'Dev Status',
-                m_ct: 'Contact',
-                m_wa: 'WhatsApp Channel',
-                m_priv: 'Privacy',
-                m_imp: 'Imprint',
-                m_foot: 'chromaFX · Freeware · No download during development',
-                h_tag: 'chromaFX — Early Development Stage',
-                h_t1: 'Edit images.',
-                h_t2: 'Your way.',
-                h_sub: 'chromaFX is a powerful RAW image editor with tone curves, noise reduction, and more.',
-                h_btn1: 'Explore Features',
-                h_btn2: 'Dev Status',
-                h_btn_wa: 'Community',
-                h_note: 'For Windows & Linux · Mac in development · Freeware',
-                ht_label: 'What chromaFX does',
-                ht_title: 'Full control.<br>No compromises.',
-                ht_sub: 'From opening RAW to finished export.',
-                ht_f1t: 'Open RAW Formats',
-                ht_f1d: 'Direct support for .CR2, .NEF, .ARW etc.',
-                ht_f2t: 'Tone Curves',
-                ht_f2d: 'Master, Red, Green and Blue channels.',
-                ht_f3t: 'Albums & Gallery',
-                ht_f3d: 'Organize with labels & ratings.',
-                ht_more: 'View all features',
-                f_label: 'Features',
-                f_title: 'Full control over every image.',
-                f_sub: 'Professional photo editing tools.',
-                f1t: 'Open RAW Formats',
-                f1d: 'Direct support for RAW files.',
-                f2t: 'Tone Curves',
-                f2d: 'Precise RGB curve editor.',
-                f3t: 'Smart Noise Reduction',
-                f3d: 'Edge-aware noise reduction.',
-                f4t: 'Albums & Gallery',
-                f4d: 'Organize with color labels.',
-                f5t: 'Before/After Comparison',
-                f5d: 'Compare side by side.',
-                f6t: 'Vignette',
-                f6d: 'Adjustable intensity and size.',
-                f7t: 'Live Histogram',
-                f7d: 'Real-time exposure control.',
-                f8t: 'EXIF & Image Search',
-                f8d: 'Search via metadata.',
-                f9t: 'Flexible Export',
-                f9d: 'Save as JPEG, PNG, TIFF.',
-                f10t: 'Split-Toning',
-                f10d: 'Color highlights and shadows.',
-                f11t: 'Black & White',
-                f11d: 'Controllable B&W conversion.',
-                f12t: 'Crop & Rotate',
-                f12d: 'Interactive grid cropping.',
-                f13t: 'Lens Correction',
-                f13d: 'Profiles via Lensfun database.',
-                f14t: 'Brush Masks',
-                f14d: 'Local painted corrections.',
-                f15t: 'Saturation & Vibrance',
-                f15d: 'Independent color controls.',
-                f16t: 'Advanced HSL Mixer',
-                f16d: '8 color channels including an eyedropper tool for direct selection.',
-                f17t: 'Auto-Adjustment',
-                f17d: 'Smart image analysis automatically corrects exposure and contrast.',
-                f18t: 'Gradient Filters',
-                f18d: 'Draw linear and radial gradients directly on your image.',
-                dev_note: '<strong>Under Development:</strong> chromaFX is currently in an early phase. Some features are being tested.',
-                r_label: 'Dev Status',
-                r_title: "What's done. What's next.",
-                r_sub: 'An honest overview.',
-                st_done: 'Done',
-                st_done2: 'Done',
-                st_done3: 'Done',
-                st_done4: 'Done',
-                st_done5: 'Done',
-                st_done6: 'Done',
-                st_done7: 'Done',
-                st_done8: 'Done',
-                st_done9: 'Done',
-                st_done10: 'Done',
-                st_done11: 'Done',
-                st_done12: 'Done',
-                st_done13: 'Done',
-                st_done14: 'Done',
-                st_wip: 'In Progress',
-                st_plan: 'Planned',
-                r1l: 'RAW Opening',
-                r1d: 'Exposure, contrast, etc.',
-                r2l: 'Tone Curves',
-                r2d: 'Interactive curve editor.',
-                r3l: 'Albums & Labels',
-                r3d: 'Gallery management.',
-                r4l: 'Noise Reduction',
-                r4d: 'Detail preservation.',
-                r5l: 'Split-Toning',
-                r5d: 'Creative moods.',
-                r6l: 'Crop & Rotate',
-                r6d: 'Thirds grid rotation.',
-                r7l: 'Lens Correction',
-                r7d: 'Lensfun profiles.',
-                r8l: 'Brush Masks',
-                r8d: 'Local corrections.',
-                r9l: 'Export',
-                r9d: 'sRGB/AdobeRGB output.',
-                r10l: 'Performance',
-                r10d: 'Stability & speed.',
-                r11l: 'Gradient Filter',
-                r11d: 'Directional edits (Linear & Radial) with live preview.',
-                r13l: 'HDR, Panorama & Focus Stacking',
-                r13d: 'Seamlessly merge multiple images.',
-                r14l: 'Quick Culling Mode',
-                r14d: 'Fast selection and rating of image series.',
-                r15l: 'HSL & White Balance Picker',
-                r15d: 'Direct color selection and neutral white balance via image click.',
-                r16l: 'Luminance and Color Masks',
-                r16d: 'Precise masking based on brightness and color values.',
-                r12l: 'Mac Support',
-                r12d: 'macOS planning.',
-                sp1k: 'OS',
-                sp1v: 'Windows / Linux',
-                sp2k: 'RAM',
-                sp2r: '/ Rec. 8 GB+',
-                sp3k: 'Processor',
-                sp4k: 'License',
-                sp4v: 'Freeware',
-                sp5k: 'Color Depth',
-                sp6k: 'Status',
-                sp6v: 'In Development',
-                ct_label: 'Contact',
-                ct_title: 'Feedback is welcome.',
-                ct_sub: 'chromaFX is a solo project.',
-                ct_dev: 'Developer',
-                ct_mail: 'E-Mail',
-                ct_loc: 'Location',
-                ct_locv: 'Germany',
-                ct_wa_label: 'Community',
-                ct_wa_val: 'Join WhatsApp Channel',
-                ct_proj: 'Project',
-                ct_lic: 'License',
-                ct_licv: 'Freeware',
-                priv_label: 'Legal',
-                priv_title: 'Privacy Policy',
-                priv_intro: 'The protection of your personal data is important to me. I treat your personal data confidentially and in accordance with the statutory data protection regulations, in particular the General Data Protection Regulation (GDPR), the German Federal Data Protection Act (BDSG) and the German Telecommunications Telemedia Data Protection Act (TDDDG). This privacy policy informs you about the type, scope and purpose of the processing of personal data within this online offering.',
-                priv_h1: '1. Controller',
-                priv_resp_note: 'Controller within the meaning of the GDPR and other national data protection laws of the member states as well as other data protection regulations.',
-                priv_h2: '2. General Information on Data Processing',
-                priv_h2_text: 'I generally collect and process personal data only to the extent necessary to provide a functional website and my content and services. The processing of personal data is regularly carried out only with the consent of the user. An exception applies in cases where prior consent cannot be obtained for factual reasons and the processing of the data is permitted by legal regulations.',
-                priv_h3: '3. Provision of the Website and Creation of Log Files',
-                priv_h3_text: 'Each time my website is accessed, my hosting provider systematically collects data and information from the computer system of the accessing computer. The following data is collected: browser type and version, operating system used, referrer URL, host name of the accessing computer, time of the server request and the IP address. The data is also stored in the log files of the system. This data is not stored together with other personal data of the user. The legal basis for the temporary storage of the data and the log files is Art. 6 para. 1 lit. f GDPR (legitimate interest in the technically error-free presentation and optimisation of this website).',
-                priv_h4: '4. Contact (E-Mail)',
-                priv_h4_text: 'When you contact me by e-mail, the data you provide (your e-mail address, possibly your name and telephone number as well as the content of your message) will be stored by me in order to answer your questions or process your request. I delete the data arising in this context once storage is no longer necessary, or restrict processing if statutory retention obligations exist. The legal basis for processing the data is Art. 6 para. 1 lit. b GDPR (contract fulfilment / pre-contractual measures) or Art. 6 para. 1 lit. f GDPR (legitimate interest in answering your enquiry).',
-                priv_h5: '5. External Links',
-                priv_h5_text: 'My website contains links to external third-party websites (in particular WhatsApp). I have no influence on the processing of your data on these external platforms. The data processing on these platforms is governed exclusively by the privacy policies of the respective providers. Please inform yourself there about the respective data protection provisions.',
-                priv_h5_wa: 'In particular, I would like to point out that the WhatsApp channel is operated by Meta Platforms, Inc. When using WhatsApp, the WhatsApp / Meta privacy policy applies. I have no influence on the data processing there.',
-                priv_h6: '6. Rights of the Data Subject',
-                priv_h6_text: 'If your personal data is processed, you are a data subject within the meaning of the GDPR and you have the following rights against the controller:',
-                priv_r1: '<strong>Right of access (Art. 15 GDPR):</strong> You can request information about your personal data processed by me.',
-                priv_r2: '<strong>Right to rectification (Art. 16 GDPR):</strong> You can immediately request the correction of incorrect or completion of your personal data stored by me.',
-                priv_r3: '<strong>Right to erasure (Art. 17 GDPR):</strong> You can request the deletion of your personal data stored by me.',
-                priv_r4: '<strong>Right to restriction of processing (Art. 18 GDPR):</strong> You can request the restriction of the processing of your personal data.',
-                priv_r5: '<strong>Right to data portability (Art. 20 GDPR):</strong> You have the right to receive your personal data in a structured, commonly used and machine-readable format.',
-                priv_r6: '<strong>Right to object (Art. 21 GDPR):</strong> You have the right to object at any time, on grounds relating to your particular situation, to the processing of personal data concerning you.',
-                priv_r7: '<strong>Right to withdraw consent (Art. 7 para. 3 GDPR):</strong> You have the right to withdraw your consent at any time.',
-                priv_r8: '<strong>Right to lodge a complaint with a supervisory authority (Art. 77 GDPR):</strong> You have the right to lodge a complaint with a data protection supervisory authority about the processing of your personal data by me.',
-                priv_h7: '7. No Cookies, No Tracking',
-                priv_h7_text: 'This website does not use cookies and does not use any tracking or analysis tools. No personal data is processed for marketing or profiling purposes.',
-                priv_h8: '8. Timeliness and Amendment of this Privacy Policy',
-                priv_h8_text: 'This privacy policy is currently valid and is dated April 2026. Due to the further development of my website and offers or due to changed legal or official requirements, it may become necessary to amend this privacy policy. The current privacy policy can be accessed and printed out by you at any time on this website.',
-                imp_label: 'Legal',
-                imp_title: 'Imprint',
-                imp_h1: 'Information according to § 5 TMG (German Telemedia Act)',
-                imp_h2: 'Contact',
-                imp_h3: 'Liability for Content',
-                imp_h3_text: 'As a service provider, I am responsible for my own content on these pages in accordance with § 7 para.1 TMG under the general laws. According to §§ 8 to 10 TMG, however, I am not obligated as a service provider to monitor transmitted or stored third-party information or to investigate circumstances that indicate illegal activity. Obligations to remove or block the use of information under the general laws remain unaffected. However, liability in this respect is only possible from the time of knowledge of a specific infringement. If I become aware of any such infringements, I will remove this content immediately.',
-                imp_h4: 'Liability for Links',
-                imp_h4_text: 'My offer contains links to external websites of third parties, on whose contents I have no influence. Therefore, I cannot assume any liability for these external contents. The respective provider or operator of the pages is always responsible for the contents of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal contents were not recognisable at the time of linking. However, a permanent control of the contents of the linked pages is not reasonable without concrete evidence of a violation of the law. If I become aware of any infringements, I will remove such links immediately.',
-                imp_h5: 'Copyright',
-                imp_h5_text: 'The content and works created by the site operator on these pages are subject to German copyright law. The reproduction, adaptation, distribution and any kind of exploitation outside the limits of copyright require the written consent of the respective author or creator. Downloads and copies of this site are only permitted for private, non-commercial use. Insofar as the content on this site was not created by the operator, the copyrights of third parties are respected. In particular, third-party content is marked as such. Should you nevertheless become aware of a copyright infringement, please inform me accordingly. If I become aware of any infringements, I will remove such content immediately.',
-                imp_h6: 'Disclaimer for the Software (chromaFX)',
-                imp_h6_text: 'The software chromaFX is provided free of charge as freeware. Use is at the user\'s own risk. The developer assumes no warranty or liability for damages that may arise from the use of the software, to the extent permitted by law. This applies in particular to data loss, damage to hardware or software as well as consequential damages of any kind. It is recommended to always make backup copies of original files before editing images. The software is still partly under active development – errors and unexpected behaviour can therefore not be excluded.',
-                imp_h7: 'Dispute Resolution',
-                imp_h7_text: 'The European Commission provides a platform for online dispute resolution (ODR): <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener">https://ec.europa.eu/consumers/odr/</a>. I am not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.',
-                f_imp: 'Imprint',
-                f_priv: 'Privacy',
-                f_rights: 'All rights reserved.',
-                f_note: 'Freeware · No download during development.'
-            }
-        };
-
-        function setLang(l) {
-            document.getElementById('lang-de').classList.toggle('active', l === 'de');
-            document.getElementById('lang-en').classList.toggle('active', l === 'en');
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const k = el.getAttribute('data-i18n');
-                if (T[l] && T[l][k]) el.innerHTML = T[l][k];
-            });
-        }
-    </script>
-</body>
-</html>
+                <div class="rm-item"><div class="rm-status s-done" data-i18n="st_done">Fertig</div><div><div class="rm-label" data-i18n="r2l">Tonwe
