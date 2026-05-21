@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>chromaFX – The RAW Editor</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --surface-color: #f5f5f7;
+            --surface-dark: #111111;
+            --text-main: #111111;
+            --text-muted: #6e6e73;
+            --accent: #000000;
+            --whatsapp: #25D366;
+            --done: #10B981;
+            --progress: #F59E0B;
+            --planned: #3B82F6;
+        }
+
+        /* Reset & Mobile Overflow Fixes */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.5;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        
+        .container { 
+            width: 100%; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 1.5rem; 
+        }
+
+        /* --- View Management (SPA Logic) --- */
+        .view-section {
+            display: none;
+            animation: fadeIn 0.4s ease forwards;
+        }
+        .view-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- Sticky Header --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 85px; 
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Logo (Nur Bild) */
+        .logo {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            cursor: pointer;
+        }
+        .logo img { height: 48px; width: auto; } 
+
+        nav.main-menu {
+            display: flex;
+            gap: 2rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            align-items: center;
+        }
+
+        nav.main-menu a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: color 0.2s;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        nav.main-menu a:hover { color: var(--text-main); }
+        nav.main-menu a.active { color: var(--text-main); font-weight: 700; }
+        
+        /* WhatsApp Icon im Menü */
+        nav.main-menu a.whatsapp { color: var(--text-muted); }
+        nav.main-menu a.whatsapp:hover { color: var(--whatsapp); }
+        .wa-icon { width: 18px; height: 18px; fill: currentColor; }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .badge {
+            background-color: #fce7f3;
+            color: #be185d;
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        /* --- Hero Section --- */
+        .hero { padding: 160px 0 4rem; text-align: center; }
+
+        h1 {
+            font-size: clamp(2.8rem, 8vw, 5.5rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1.05;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+            margin-inline: auto;
+        }
+
+        .subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.3rem);
+            color: var(--text-muted);
+            max-width: 700px;
+            margin: 0 auto 3rem;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+        .subtitle strong { color: var(--text-main); font-weight: 600; }
+
+        .btn-group { display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; margin-bottom: 5rem; }
+        
+        .btn {
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 1.1rem 2.2rem; border-radius: 12px; font-size: 1.05rem; font-weight: 600;
+            cursor: pointer; transition: all 0.2s ease; width: fit-content;
+        }
+        
+        .btn-primary { 
+            background-color: var(--accent); color: #ffffff; border: 1px solid var(--accent); 
+            box-shadow: 0 10px 20px -10px rgba(0,0,0,0.3); 
+        }
+        .btn-primary:hover { background-color: #222; border-color: #222; transform: translateY(-2px); }
+
+        /* Sekundärer Button Style */
+        .btn-secondary {
+            background-color: transparent; color: var(--text-main); border: 1px solid rgba(0,0,0,0.1);
+        }
+        .btn-secondary:hover {
+            background-color: var(--surface-color); border-color: rgba(0,0,0,0.2); transform: translateY(-2px);
+        }
+
+        /* --- App Showcase --- */
+        .app-showcase {
+            width: 100%; border-radius: 16px; overflow: hidden;
+            box-shadow: 0 40px 80px -20px rgba(0,0,0,0.25); background-color: #111; border: 1px solid rgba(0,0,0,0.1);
+        }
+        .app-showcase img { width: 100%; height: auto; display: block; }
+
+        /* --- Philosophy Section --- */
+        .philosophy {
+            padding: 8rem 0; background-color: var(--surface-dark); color: #ffffff; text-align: center;
+        }
+        .philosophy h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em;
+            margin-bottom: 2rem; max-width: 800px; margin-inline: auto; line-height: 1.2;
+        }
+        .philosophy p { color: #a1a1aa; font-size: 1.15rem; max-width: 650px; margin: 0 auto; line-height: 1.6; }
+
+        /* --- Killer Features (Startseite) --- */
+        .killer-features { padding: 8rem 0; text-align: center; }
+        
+        .killer-header { margin-bottom: 5rem; }
+        .killer-header h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; }
+
+        .killer-item { max-width: 700px; margin: 0 auto 5rem; text-align: center; }
+        .killer-item:last-child { margin-bottom: 0; }
+        .killer-item h3 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
+        .killer-item p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
+
+        /* --- Page Header (Reusable) --- */
+        .page-header { padding: 160px 0 4rem; text-align: center; }
+        .page-header h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1rem; font-weight: 800; letter-spacing: -0.04em;}
+        .page-header p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto; line-height: 1.6;}
+
+        /* --- Full Features List --- */
+        .all-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            margin-bottom: 6rem;
+        }
+        
+        .feature-category {
+            background-color: var(--surface-color);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+        
+        .feature-category:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px -10px rgba(0,0,0,0.08);
+        }
+
+        .feature-category h3 {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            border-bottom: 2px solid rgba(0,0,0,0.05);
+            padding-bottom: 1rem;
+        }
+
+        .feature-category ul {
+            list-style: none;
+        }
+
+        .feature-category li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        .feature-category li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--done);
+            font-weight: 800;
+        }
+
+        .feature-category li strong {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        /* --- Roadmap Grid --- */
+        .roadmap-section { margin-bottom: 6rem; }
+        .roadmap-section h2 { font-size: 2rem; font-weight: 800; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--surface-color); letter-spacing: -0.02em; }
+        
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        .feature-card { background-color: var(--surface-color); padding: 2rem; border-radius: 16px; transition: transform 0.2s; }
+        .feature-card:hover { transform: translateY(-4px); }
+        .feature-card h4 { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.01em;}
+        .feature-card p { color: var(--text-muted); font-size: 1rem; line-height: 1.5; }
+
+        .status-progress .feature-card { border-left: 4px solid var(--progress); }
+        .status-planned .feature-card { border-left: 4px solid var(--planned); }
+
+        /* --- Footer --- */
+        footer { border-top: 1px solid var(--surface-color); padding: 4rem 0 2rem; text-align: center; font-size: 0.9rem; }
+        .footer-logo { display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem; cursor: pointer;}
+        .footer-logo img { height: 32px; width: auto; filter: grayscale(100%); opacity: 0.6; } 
+        .footer-links { margin-bottom: 2rem; display: flex; justify-content: center; flex-wrap: wrap; gap: 2rem; }
+        .footer-links a { color: var(--text-muted); font-weight: 500; transition: color 0.2s; cursor: pointer; }
+        .footer-links a:hover { color: var(--text-main); text-decoration: underline; }
+        .copyright { color: #999; }
+
+        /* --- Overlays (Modals) --- */
+        .modal {
+            display: none; position: fixed; inset: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            z-index: 9999; overflow-y: auto; overflow-x: hidden; padding: 4rem 1.5rem;
+            opacity: 0; animation: fadeIn 0.3s forwards;
+        }
+        .modal.open { display: block; opacity: 1; }
+        .modal-content { max-width: 800px; margin: 0 auto; width: 100%; text-align: left; padding-bottom: 4rem; }
+        .modal-content h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 2rem; }
+        .modal-content p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.8; margin-bottom: 1.5rem; }
+        .modal-content h3 { font-size: 1.2rem; margin: 2rem 0 1rem; font-weight: 700; color: var(--text-main); }
+        .modal-content ul { color: var(--text-muted); margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8; font-size: 1.05rem;}
+        
+        .close-btn {
+            position: fixed; top: 1.5rem; right: 1.5rem;
+            font-size: 2.5rem; color: var(--text-main);
+            font-weight: 300; line-height: 1; transition: transform 0.2s;
+            background: #f5f5f7; width: 44px; height: 44px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; cursor: pointer;
+            z-index: 10000;
+        }
+        .close-btn:hover { transform: scale(1.1); background: #eaeaea; }
+
+        /* --- Responsive Tweaks --- */
+        @media (max-width: 992px) {
+            nav.main-menu { position: static; transform: none; gap: 1.5rem; flex-wrap: wrap; justify-content: center;}
+            .badge { display: none; }
+            .header-right { flex: 0; justify-content: flex-end;}
+        }
+        @media (max-width: 768px) {
+            header { position: relative; background: #fff; }
+            .header-content { flex-direction: column; height: auto; padding: 1rem; gap: 1rem; }
+            .hero { padding: 40px 0 3rem; }
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn { width: 100%; }
+            .app-showcase { margin: 1rem auto 3rem; border-radius: 8px; }
+            .killer-features { padding: 4rem 0; }
+            .philosophy { padding: 5rem 0; }
+            .modal-content h2 { font-size: 2rem; }
+            .all-features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- STICKY HEADER -->
+    <header>
+        <div class="header-content">
+            <div class="logo" onclick="switchView('home')">
+                <img src="chromaFX.png" alt="chromaFX Logo">
+            </div>
+            
+            <nav class="main-menu">
+                <a id="nav-home" class="active" onclick="switchView('home')">Übersicht</a>
+                <a id="nav-all-features" onclick="switchView('all-features')">Alle Features</a>
+                <a id="nav-roadmap" onclick="switchView('roadmap')">Roadmap</a>
+                <a href="https://whatsapp.com/channel/0029Vb7mjkM4o7qO78tl3K16" class="whatsapp" target="_blank" title="WhatsApp Kanal abonnieren">
+                    <svg class="wa-icon" viewBox="0 0 24 24">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                    </svg>
+                    WhatsApp Kanal
+                </a>
+            </nav>
+
+            <div class="header-right">
+                <div class="badge">In Entwicklung</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========================================== -->
+    <!-- VIEW: STARTSEITE (HOME)                    -->
+    <!-- ========================================== -->
+    <main id="view-home" class="view-section active">
+        
+        <section class="hero container">
+            <h1>RAW-Bearbeitung.<br>Neu gedacht für Linux.</h1>
+            <div class="subtitle">
+                Ein hochoptimierter, nicht-destruktiver und GPU-beschleunigter RAW-Bildeditor. <br>
+                <strong>100% lokal. Keine Abonnements. Aktuell in der Entwicklung.</strong>
+            </div>
+            
+            <!-- HIER SIND NUN BEIDE KNÖPFE -->
+            <div class="btn-group">
+                <a onclick="switchView('all-features')" class="btn btn-primary">
+                    Alle Features entdecken
+                </a>
+                <a onclick="switchView('roadmap')" class="btn btn-secondary">
+                    Zur Roadmap
+                </a>
+            </div>
+
+            <div class="app-showcase">
+                <img src="chromaFX-showcase.png" alt="chromaFX Interface">
+            </div>
+        </section>
+
+        <section class="philosophy">
+            <div class="container">
+                <h2>Professionelle Software gehört dir. Nicht der Cloud.</h2>
+                <p>Deshalb bauen wir chromaFX. Eine App, die einmal geladen wird und für immer auf deiner Festplatte bleibt. Keine versteckte Telemetrie, kein Account-Zwang, keine monatlichen Kosten. Nur du, deine Bilder und deine Hardware.</p>
+            </div>
+        </section>
+
+        <!-- Die "Killer Features" - Fokussiert & Zentriert -->
+        <section class="killer-features container">
+            <div class="killer-header">
+                <h2>Das Werkzeug für Perfektionisten.</h2>
+            </div>
+            
+            <div class="killer-item">
+                <h3>100% Offline KI Engine</h3>
+                <p>Auto-Culling, Schärfe-Erkennung und intelligente Objekt-Segmentierung passieren direkt auf deiner CPU/GPU. Wir verzichten komplett auf Cloud-APIs und bedenkliche Lizenzen (Kein YOLO/AGPL). Deine Daten verlassen deinen Rechner niemals.</p>
+            </div>
+
+            <div class="killer-item">
+                <h3>Taktile Hardware-Steuerung</h3>
+                <p>Voller MIDI-Support. Mappe alle Regler nativ auf echte Hardware-Fader und Drehregler (z.B. Loupedeck, KORG, Behringer). Erlebe ein Color-Grading, das sich anfühlt wie in einem echten Analog-Studio.</p>
+            </div>
+
+            <div class="killer-item">
+                <h3>Tethering & Focus Stacking</h3>
+                <p>Verbinde deine Kamera via USB, schieße eine Belichtungsreihe direkt in die Galerie und lass chromaFX die Bilder vollautomatisch über unsere Pyramid-Blending-Algorithmen zu gestochen scharfen Makros stacken.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- VIEW: ALLE FEATURES                        -->
+    <!-- ========================================== -->
+    <main id="view-all-features" class="view-section">
+        <section class="page-header container">
+            <h1>Funktionsumfang</h1>
+            <p>Ein tiefer Einblick in die Engine von chromaFX. Von der pixelgenauen RAW-Entwicklung über KI-gestützte Analysen bis hin zum DAM-System – alles, was du für einen kompromisslosen Workflow brauchst.</p>
+        </section>
+
+        <div class="container">
+            <div class="all-features-grid">
+                
+                <!-- Kategorie 1 -->
+                <div class="feature-category">
+                    <h3>Bildbearbeitung (Global & Lokal)</h3>
+                    <ul>
+                        <li><strong>Lineare Licht-Pipeline</strong> (Gamma 2.2 Approximation)</li>
+                        <li>Highlight Roll-off (Sigmoid-Kompression)</li>
+                        <li>Belichtung, Kontrast, Lichter, Tiefen, Weiß- & Schwarzpunkt</li>
+                        <li><strong>Tone-Mapping:</strong> Linear, Reinhard, Filmic/Hable, ACES, Drago, Log-Neutral</li>
+                        <li>Weißabgleich inkl. Pipetten-Werkzeug</li>
+                        <li>Farbverbesserung (Grün- & Blau-Kanal)</li>
+                        <li><strong>Farbmix/HSL:</strong> 8 Kanäle für Farbton, Sättigung, Luminanz & Breite</li>
+                        <li><strong>3-Wege Color Grading:</strong> Schatten, Mitteltöne, Lichter</li>
+                        <li>Schwarz-Weiß-Mixer (8 Hue-gewichtete Kanäle)</li>
+                        <li>Kamerakalibrierung (RGB-Primärfarben-Offset)</li>
+                        <li>Split Toning (Lichter/Tiefen)</li>
+                        <li>Tonwertkurven (Master, R, G, B)</li>
+                        <li>Klarheit, Lokaler Kontrast & Dunstentfernung (Dehaze)</li>
+                        <li>Detail-Schärfung (Allgemein, Klein, Mittel, Groß)</li>
+                        <li><strong>Rauschunterdrückung:</strong> LAB-basiert & OpenCV fastNlMeansDenoisingColored (GPU-beschleunigt)</li>
+                        <li>Filmkorn-Simulation</li>
+                        <li>Perspektivkorrektur (Horizontal/Vertikal)</li>
+                        <li><strong>Objektivkorrekturen (Lensfun):</strong> Verzeichnung, Vignettierung, CAs</li>
+                        <li>Post-Crop Vignettierung</li>
+                        <li>Erweitertes Zuschneiden mit 7 Hilfslinien (Goldener Schnitt, Fibonacci, Drittelregel, etc.)</li>
+                        <li>Rotieren, Spiegeln & Auto-Begradigung (Auto-Crop für schwarze Ränder)</li>
+                        <li>Gamut-Warnung (Out-of-Gamut Hervorhebung)</li>
+                    </ul>
+                </div>
+
+                <!-- Kategorie 2 -->
+                <div class="feature-category">
+                    <h3>Ebenen & Masken</h3>
+                    <ul>
+                        <li>Nicht-destruktives Ebenensystem</li>
+                        <li>Pinselmaske (Größe, Weiche Kante, Deckkraft)</li>
+                        <li>Verlaufsmaske (Linear, Radial)</li>
+                        <li>Luminanzmaske (mit Glättung)</li>
+                        <li>Farbmaske (mit Pipette und Toleranz-Regler)</li>
+                        <li><strong>Tiefenmasken:</strong> Schärfebasiert (Laplacian), Apple HEIC Depth-Data, Atmosphärisch</li>
+                        <li><strong>KI-Objektmasken:</strong> MobileSAM ONNX (Gesicht, Person, Kanten, Subjekt)</li>
+                        <li>Magnetisches Lasso (Live-Wire/Dijkstra)</li>
+                        <li>Boolesche Operationen (Vereinigen, Subtrahieren, Schneiden, Invertieren)</li>
+                        <li>Masken-Weichzeichnung (Feather)</li>
+                        <li>Refine Edge / Kantenverfeinerung (Guided Filter)</li>
+                        <li><strong>Content-Aware Fill:</strong> Reparaturpinsel via Poisson-Blending & Klonen</li>
+                        <li>Masken-Overlay-Visualisierung (anpassbar)</li>
+                        <li>Automatisches Masken-Tracking bei Batch-Sync (ORB/ECC)</li>
+                    </ul>
+                </div>
+
+                <!-- Kategorie 3 -->
+                <div class="feature-category">
+                    <h3>Dateiverwaltung (DAM)</h3>
+                    <ul>
+                        <li>SQLite-basierte Hochleistungsdatenbank</li>
+                        <li>Alben und verschachtelte Galerien</li>
+                        <li>Virtuelle Kopien für unterschiedliche Looks</li>
+                        <li><strong>Smart Collections:</strong> Dynamische Filterregeln (AND/OR, eq, contains, in_last_days)</li>
+                        <li>Erweiterter Metadaten-Filter (Kamera, ISO, Gesichtsstatus, Format, etc.)</li>
+                        <li>Volltextsuche (Metadaten, Dateinamen, Tags)</li>
+                        <li>Favoriten & Historie zuletzt geöffneter Dateien</li>
+                        <li>Duplikat-Erkennung (dHash)</li>
+                        <li><strong>Batch-Synchronisation</strong> von Bearbeitungen</li>
+                        <li>Sterne-Bewertung & Farbmarkierungen</li>
+                        <li>Relocate (Fehlende Dateien neu verknüpfen)</li>
+                        <li>Datenbank-Backup & Wiederherstellung (Merge-Support)</li>
+                    </ul>
+                </div>
+
+                <!-- Kategorie 4 -->
+                <div class="feature-category">
+                    <h3>KI & Analyse (100% Offline)</h3>
+                    <ul>
+                        <li>Hintergrundanalyse: Schärfe, Belichtung, Gesichter, Horizontneigung</li>
+                        <li>Auto-Bewerten (Schärfe-basiertes Rating)</li>
+                        <li><strong>Auto-Enhance:</strong> Intelligente Korrektur von Belichtung, Kontrast & WB</li>
+                        <li>Auto-Enhance Stile: Lebendig, Matt, Warm, Kühl, Portrait, uvm.</li>
+                        <li><strong>Auto-Culling:</strong> KI-Scores für Qualität, Komposition & Schärfe</li>
+                        <li>Auto-Stapeln (Burst-Erkennung via EXIF)</li>
+                        <li><strong>Auto-Pick:</strong> Wählt das schärfste Bild mit offenen Augen aus einer Serie</li>
+                        <li>Gesichts- & Augendetektion (MediaPipe, Haar-Cascades)</li>
+                        <li>Farbpaletten- & Stimmungsanalyse (K-Means Clustering)</li>
+                        <li><strong>Smart Auto-Tagging:</strong> Objekterkennung, Wetter, Tageszeit & Auto-Album</li>
+                    </ul>
+                </div>
+
+                <!-- Kategorie 5 -->
+                <div class="feature-category">
+                    <h3>Bild-Kombination & Tethering</h3>
+                    <ul>
+                        <li><strong>HDR-Zusammenführung</strong> (Mertens) mit Geisterbildreduzierung & ECC-Ausrichtung</li>
+                        <li>Panorama-Erstellung (Sphärisch, Zylindrisch, Mercator, Ebene)</li>
+                        <li><strong>Focus Stacking:</strong> Laplacian-Variance & Gaussian-Pyramid-Blending</li>
+                        <li>Tethered Bracketing: Kamera-Steuerung & Live-Import via gphoto2</li>
+                    </ul>
+                </div>
+
+                <!-- Kategorie 6 -->
+                <div class="feature-category">
+                    <h3>Export & Ausgabe</h3>
+                    <ul>
+                        <li><strong>Formate:</strong> JPEG, PNG, TIFF, WebP</li>
+                        <li>Skalierung (Originalgröße, Lange Kante)</li>
+                        <li><strong>ICC-Farbmanagement:</strong> sRGB, AdobeRGB, ProPhoto RGB, Display P3</li>
+                        <li>Soft-Proofing (Druckfarbprofil-Simulation)</li>
+                        <li>Export-Profile (5 integrierte + speicherbare User-Presets)</li>
+                        <li>Background Job-Queue (Export-Warteschlange mit Fortschritt & Pause)</li>
+                        <li>Metadaten erhalten/entfernen (EXIF, GPS)</li>
+                        <li>Wasserzeichen (Text/Bild, Kacheln, interaktive Platzierung)</li>
+                        <li>Kontaktbogen-Generierung (PDF/PNG)</li>
+                        <li>Druckvorschau</li>
+                        <li>XMP-Sidecar-Export & Metadaten CSV/JSON Export</li>
+                        <li>LUT Im- & Export (.cube, 1D und 3D LUTs)</li>
+                    </ul>
+                </div>
+
+                <!-- Kategorie 7 -->
+                <div class="feature-category">
+                    <h3>UI & Workflow</h3>
+                    <ul>
+                        <li>Dark & Light Theme</li>
+                        <li>Mehrsprachigkeit (DE, EN, FR, ES, PL, IT)</li>
+                        <li>Anpassbare Tastenkürzel</li>
+                        <li><strong>MIDI-Controller Support</strong> (Class-Compliant, MIDI-Learn)</li>
+                        <li><strong>Elgato Stream Deck</strong> Integration (HID oder lokale HTTP-API)</li>
+                        <li>Split-View & Side-by-Side (Vorher/Nachher)</li>
+                        <li>Compare-Viewer (Sync-Zoom & Pan für mehrere Bilder)</li>
+                        <li>Culling-Ansicht mit Focus Peaking & KI-Scores</li>
+                        <li>50-stufiger Undo/Redo-Verlauf mit Detailansicht</li>
+                        <li>Snapshot-Verwaltung (Manuelle & Auto-Versionsstände)</li>
+                        <li>Histogramm mit Zebra-Clipping-Warnungen</li>
+                        <li>Navigator-Minimap & GPS-Link zu OpenStreetMap</li>
+                        <li><strong>Plugin-System</strong> für Python-basierte Custom-Filter</li>
+                        <li>Integrierter Metadaten-Editor</li>
+                    </ul>
+                </div>
+
+                <!-- Kategorie 8 -->
+                <div class="feature-category">
+                    <h3>Performance & System</h3>
+                    <ul>
+                        <li><strong>1:1-Preview-Cache</strong> (Idle-Generierung im Hintergrund)</li>
+                        <li>AVX2-Check & Fallbacks für ältere Hardware</li>
+                        <li><strong>GPU-Beschleunigung:</strong> OpenCL / CUDA via cv2.UMat / PyOpenCL</li>
+                        <li>JIT-Kompilierung (Numba) für rechenintensive Filter</li>
+                        <li>Float16-Speicherkompression für massive Megapixel-Dateien</li>
+                        <li>Multithreading (ThreadPoolExecutor / ProcessPoolExecutor)</li>
+                        <li>Progressives Zoom-Rendering (Hintergrund-Schärfung via Lanczos)</li>
+                        <li>Lazy Loading von UI-Modulen für Blitzstarts</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ========================================== -->
+    <!-- VIEW: ROADMAP (GEPLANTE FEATURES)          -->
+    <!-- ========================================== -->
+    <main id="view-roadmap" class="view-section">
+        <section class="page-header container">
+            <h1>Entwicklungs-Roadmap</h1>
+            <p>Ein transparenter Blick darauf, woran wir gerade arbeiten und was für die Zukunft von chromaFX geplant ist.</p>
+        </section>
+
+        <div class="container">
+            <!-- IN ARBEIT -->
+            <div class="roadmap-section status-progress">
+                <h2 style="color: var(--progress);">Aktuell in Arbeit</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>Refine Edge Algorithm</h4>
+                        <p>Implementierung von "Guided-Filter"-Technologien für perfekte Maskenkanten bei komplexen Motiven wie fliegenden Haaren oder Fell.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Tethered Shooting UI</h4>
+                        <p>Eine dedizierte Live-View-Ansicht für das Auslösen der Kamera (via gphoto2) direkt aus der chromaFX-Oberfläche.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Performance-Optimierung</h4>
+                        <p>Feinschliff der Numpy- und Numba-Routinen, damit auch ältere CPUs ohne AVX2-Support flüssig arbeiten können.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GEPLANT -->
+            <div class="roadmap-section status-planned">
+                <h2 style="color: var(--planned);">Geplant</h2>
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h4>Plugin-Ökosystem Doku</h4>
+                        <p>Veröffentlichung der Dokumentation für unsere einfache Python-API, mit der die Community eigene Filter und Export-Skripte schreiben kann.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>LUT-Echtzeit Vorschau</h4>
+                        <p>Ein visuelles Hover-System, um installierte .cube-Dateien direkt als Grid-Vorschau auf das aktuelle Bild anzuwenden, bevor sie ausgewählt werden.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h4>Cloud-Sync für Presets</h4>
+                        <p>Optionale (und streng Opt-in) Synchronisation deiner selbstgebauten Presets und Smart-Collections über eigene Nextcloud-Instanzen.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="footer-logo" onclick="switchView('home')">
+                <img src="chromaFX.png" alt="Logo">
+            </div>
+            <div class="footer-links">
+                <a onclick="openModal('impressum')">Impressum</a>
+                <a onclick="openModal('datenschutz')">Datenschutz</a>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Dominik Schrödel. chromaFX Version 1.3.0.<br>
+                Software befindet sich in der Entwicklung. Release-Datum noch offen.
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================== -->
+    <!-- OVERLAYS (MODALS) - RECHTLICHES            -->
+    <!-- ========================================== -->
+    
+    <!-- Impressum Modal -->
+    <div id="modal-impressum" class="modal">
+        <a onclick="closeModals()" class="close-btn" aria-label="Schließen">&times;</a>
+        <div class="modal-content">
+            <h2>Impressum</h2>
+            <p>Angaben gemäß § 5 TMG.</p>
+            
+            <h3>Betreiber & Kontakt</h3>
+            <p>
+                <strong>Dominik Schrödel</strong><br>
+                Kirchröttenbach D 42<br>
+                91220 Schnaittach<br>
+                Deutschland
+            </p>
+            <p>
+                E-Mail: <a href="mailto:chromafx@mail.de" style="color: var(--planned); text-decoration: underline;">chromafx@mail.de</a>
+            </p>
+            
+            <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+            <p>
+                Dominik Schrödel<br>
+                Kirchröttenbach D 42<br>
+                91220 Schnaittach
+            </p>
+            
+            <h3>EU-Streitschlichtung</h3>
+            <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer" style="color: var(--planned); text-decoration: underline;">https://ec.europa.eu/consumers/odr/</a>.<br>
+            Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+            <h3>Haftung für Inhalte und Links</h3>
+            <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werden wir diese Inhalte umgehend entfernen.</p>
+            <p>Unser Angebot enthält Links zu externen Websites Dritter, auf deren Inhalte wir keinen Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber der Seiten verantwortlich.</p>
+            
+            <h3>Urheberrecht</h3>
+            <p>Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.</p>
+
+            <h3>Hinweis zum Software-Status (Disclaimer)</h3>
+            <p>chromaFX befindet sich aktuell in der Entwicklungsphase (Pre-Release). Jegliche Nutzung künftiger Versionen erfolgt auf eigene Gefahr. Für eventuelle Datenverluste, Softwarefehler oder Schäden an der Hardware wird keine Haftung übernommen.</p>
+        </div>
+    </div>
+
+    <!-- Datenschutz Modal -->
+    <div id="modal-datenschutz" class="modal">
+        <a onclick="closeModals()" class="close-btn" aria-label="Schließen">&times;</a>
+        <div class="modal-content">
+            <h2>Datenschutzerklärung</h2>
+            
+            <h3>1. Datenschutz auf einen Blick</h3>
+            <p><strong>Allgemeine Hinweise:</strong> Die folgenden Hinweise geben einen einfachen Überblick darüber, was mit Ihren personenbezogenen Daten passiert, wenn Sie diese Website besuchen. Personenbezogene Daten sind alle Daten, mit denen Sie persönlich identifiziert werden können.</p>
+            
+            <h3>2. Die Software (chromaFX) – Privacy by Design</h3>
+            <p>Die Software "chromaFX" ist konsequent nach dem Prinzip "Privacy by Design" entwickelt worden und arbeitet zu 100% lokal auf Ihrem Endgerät.</p>
+            <ul>
+                <li>Es werden <strong>keine Telemetrie-Daten</strong> gesammelt.</li>
+                <li>Es findet <strong>keine Übertragung</strong> von Bildern, Metadaten oder Nutzerverhalten an Server des Entwicklers oder Dritter statt.</li>
+                <li>Künstliche Intelligenz (KI) und Bildanalysen laufen ausschließlich offline auf Ihrer eigenen Hardware.</li>
+            </ul>
+
+            <h3>3. Datenerfassung auf dieser Website</h3>
+            <p><strong>Hosting & Server-Log-Dateien:</strong> Die Website wird auf Servern eines externen Hosters betrieben. Dieser erhebt und speichert automatisch Informationen in so genannten Server-Log-Dateien, die Ihr Browser an uns übermittelt. Dies sind u.a.: Browsertyp und -version, Betriebssystem, Referrer URL, Hostname des zugreifenden Rechners, Uhrzeit der Serveranfrage und die IP-Adresse.</p>
+            <p>Die Erfassung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO. Der Websitebetreiber hat ein berechtigtes Interesse an der technisch fehlerfreien Darstellung und der Optimierung seiner Website.</p>
+
+            <h3>4. Cookies und Analyse-Tools</h3>
+            <p>Wir verzichten ganz bewusst auf den Einsatz von Tracking-Tools (wie Google Analytics), Werbe-Netzwerken und Analyse-Cookies. Ihr Besuch auf dieser Website wird nicht durch uns verfolgt oder ausgewertet.</p>
+
+            <h3>5. Kontaktaufnahme</h3>
+            <p>Wenn Sie uns per E-Mail kontaktieren, wird Ihre Anfrage inklusive aller daraus hervorgehenden personenbezogenen Daten (Name, E-Mail-Adresse, Inhalt der Anfrage) zum Zwecke der Bearbeitung Ihres Anliegens bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO, sofern Ihre Anfrage mit der Erfüllung eines Vertrags zusammenhängt. Andernfalls basiert sie auf unserem berechtigten Interesse an der effektiven Bearbeitung der Anfragen (Art. 6 Abs. 1 lit. f DSGVO).</p>
+
+            <h3>6. Ihre Rechte (Betroffenenrechte)</h3>
+            <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf:</p>
+            <ul>
+                <li><strong>Auskunft</strong> über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und den Zweck der Datenverarbeitung (Art. 15 DSGVO).</li>
+                <li><strong>Berichtigung</strong> unrichtiger Daten (Art. 16 DSGVO).</li>
+                <li><strong>Löschung</strong> Ihrer bei uns gespeicherten Daten (Art. 17 DSGVO).</li>
+                <li><strong>Einschränkung der Datenverarbeitung</strong> (Art. 18 DSGVO).</li>
+                <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO).</li>
+                <li><strong>Widerspruch</strong> gegen die Verarbeitung (Art. 21 DSGVO).</li>
+            </ul>
+            <p>Hierzu sowie zu weiteren Fragen zum Thema Datenschutz können Sie sich jederzeit an die im Impressum angegebene Adresse wenden. Des Weiteren steht Ihnen ein Beschwerderecht bei der zuständigen Aufsichtsbehörde zu.</p>
+        </div>
+    </div>
+
+    <!-- --- JAVASCRIPT --- -->
+    <script>
+        // Single Page App Navigation
+        function switchView(viewId) {
+            // Verstecke alle Views
+            document.querySelectorAll('.view-section').forEach(el => {
+                el.classList.remove('active');
+            });
+            // Zeige gewählte View
+            document.getElementById('view-' + viewId).classList.add('active');
+            
+            // Scrolle ganz nach oben
+            window.scrollTo(0, 0);
+
+            // Aktualisiere Menü-Style
+            document.querySelectorAll('nav.main-menu a').forEach(el => {
+                el.classList.remove('active');
+            });
+            let navLink = document.getElementById('nav-' + viewId);
+            if(navLink) navLink.classList.add('active');
+        }
+
+        // Modals / Overlays öffnen und schließen
+        function openModal(id) {
+            document.getElementById('modal-' + id).classList.add('open');
+            document.body.style.overflow = 'hidden'; // Verhindert scrollen im Hintergrund
+        }
+
+        function closeModals() {
+            document.querySelectorAll('.modal').forEach(el => {
+                el.classList.remove('open');
+            });
+            document.body.style.overflow = 'auto'; // Erlaubt scrollen wieder
+        }
+
+        // Schließe Modals mit Escape-Taste
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModals();
+            }
+        });
+    </script>
+</body>
+</html>
