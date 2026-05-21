@@ -1,5 +1,11 @@
 # chromaFX - The RAW Editor
 
+<p align="center">
+  <img src="chromaFX.png" alt="chromaFX Logo" width="120">
+</p>
+
+> **Note:** chromaFX is currently in active development. Pre-release builds and downloads are not yet available.
+
 chromaFX is a non-destructive and GPU-accelerated RAW image editor designed natively for Linux. It operates locally and functions entirely offline without user accounts or tracking.
 
 ---
