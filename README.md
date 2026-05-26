@@ -80,6 +80,6 @@ The system supports camera connectivity via USB using gphoto2 for image import a
 ## Meta and Disclaimer
 
 * Developer: Dominik Schrödel
-* Target Platform: Linux
+* Target Platform: Linux/Windows
 
 Disclaimer: This software is in the development phase. Pre-release builds are used at the user's own risk. The developer assumes no liability for data loss or hardware instability during use.
