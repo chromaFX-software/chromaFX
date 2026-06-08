@@ -3,47 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>chromaFX – The RAW Editor</title>
+    <title>chromaFX – Der RAW Editor</title>
     
-    <!-- ========================================== -->
-    <!-- SEO & META TAGS (Deutsch & Englisch)       -->
-    <!-- ========================================== -->
-    
-    <!-- Beschreibung für Google Suchergebnisse -->
-    <meta name="description" content="chromaFX – Der hochoptimierte, nicht-destruktive und GPU-beschleunigte RAW-Bildeditor für Linux. 100% lokale KI, kein Abo, voller MIDI-Support. | The ultimate offline RAW photo editor for Linux.">
-    
-    <!-- Keywords / Tags (Sehr ausführlich) -->
+    <!-- SEO & Social Meta Tags -->
+
+    <!-- Google zeigt diese Beschreibung direkt unter dem Seitentitel in den Suchergebnissen -->
+    <meta name="description" content="chromaFX – Nicht-destruktiver RAW-Bildeditor für Linux mit GPU-Beschleunigung und 100% lokaler KI. Kostenlos, kein Abo, kein Account. Lightroom-Alternative für Ubuntu, Arch, Fedora & Co. | The offline-first RAW photo editor for Linux.">
+
+    <!-- Keywords helfen Suchmaschinen beim Einordnen – je spezifischer, desto besser -->
     <meta name="keywords" content="
-        RAW Editor, RAW Konverter, Bildbearbeitung, Linux Bildbearbeitung, Fotografie Software, Foto Editor Linux, Foto App, 
-        ohne Abo, kein Abo, lokale KI, Offline KI, KI Bildbearbeitung, Künstliche Intelligenz, GPU-beschleunigt, 
-        Bildverwaltung, DAM, Digital Asset Management, Fotoverwaltung, 
-        Lightroom Alternative Linux, Capture One Alternative, Darktable Alternative, RawTherapee Alternative, DxO PhotoLab Alternative,
-        Tethering, Focus Stacking, HDR, Color Grading, Farbkorrektur, MIDI Controller Support, Loupedeck, Stream Deck, 
-        non-destruktiv, zerstörungsfrei, Objektivkorrektur, Lensfun, KI Masken, Auto-Culling, Gesichtserkennung offline,
-        RAW editor Linux, photo editor, image processing software, photography, photo editing software,
-        local AI, offline AI, GPU acceleration, OpenCL, CUDA, non-destructive editing, photo management, 
-        color grading, tethered shooting, RAW development, AI photo editing, 
-        ICC Farbmanagement, Farbmanagement, 16-bit, 32-bit float, 
-        Dominik Schrödel, chromaFX, chroma FX, Linux Desktop, Ubuntu photo editor, Arch Linux RAW
+        RAW Editor Linux, RAW Konverter Linux, Bildbearbeitung Linux, Foto Editor Linux, Fotografie Software Linux,
+        Lightroom Alternative Linux, Capture One Alternative Linux, Darktable Alternative, RawTherapee Alternative, DxO PhotoLab Alternative,
+        kostenloser RAW Editor, RAW Editor ohne Abo, Foto Software ohne Cloud, lokale Bildbearbeitung,
+        Ubuntu Foto Editor, Arch Linux Foto Editor, Fedora RAW Editor, Debian Bildbearbeitung, openSUSE Foto Software,
+        nicht-destruktiver Bildeditor, zerstörungsfreie Bildbearbeitung, non-destructive RAW,
+        KI Bildbearbeitung offline, lokale KI Fotos, KI ohne Cloud, Offline KI Linux,
+        Auto-Culling, KI Masken, MobileSAM, Objektsegmentierung, Gesichtserkennung offline,
+        GPU-beschleunigt Bildbearbeitung, OpenCL Bildbearbeitung, CUDA Foto Editor,
+        MIDI Controller Bildbearbeitung, Loupedeck Linux, Stream Deck Foto Editor, MIDI Learn,
+        Focus Stacking Linux, HDR Zusammenführung Linux, Tethered Shooting Linux, gphoto2,
+        Color Grading Linux, 3-Wege Color Grading, Farbkorrektur, LUT Editor, .cube LUT,
+        ICC Farbmanagement, AdobeRGB, ProPhoto RGB, Soft Proofing,
+        RAW Entwicklung, Lensfun Objektivkorrektur, Vignettierung korrigieren, Verzeichnung korrigieren,
+        Smart Collections, Digital Asset Management Linux, DAM Software, Fotoverwaltung Linux,
+        Panorama Software Linux, Makrofotografie Software, Schärfentiefe stapeln,
+        XMP Sidecar, EXIF Editor, Metadaten bearbeiten,
+        chromaFX, chroma FX, Dominik Schrödel,
+        RAW editor Linux, photo editor Linux, free RAW converter Linux, offline photo editing,
+        local AI photo editing, non-destructive photo editor, Lightroom alternative free,
+        GPU accelerated photo editor, MIDI photo editing, tethered shooting software,
+        focus stacking software, HDR software Linux, color grading software Linux,
+        Ubuntu photo editor, Arch Linux RAW editor, open source photo editor alternative
     ">
-    
-    <!-- Autor und Suchmaschinen-Robots -->
+
     <meta name="author" content="Dominik Schrödel">
+    <!-- Suchmaschinen sollen die Seite vollständig indexieren und auch große Bilder für die Bildsuche berücksichtigen -->
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="language" content="German, English">
 
-    <!-- Open Graph (Für schöne Vorschauen beim Teilen auf WhatsApp, Facebook, LinkedIn, Discord) -->
+    <!-- Open Graph: Sorgt für schöne Vorschauen wenn jemand den Link auf Discord, WhatsApp, LinkedIn etc. teilt -->
     <meta property="og:site_name" content="chromaFX">
-    <meta property="og:title" content="chromaFX – The RAW Editor for Linux">
-    <meta property="og:description" content="RAW-Bearbeitung neu gedacht. 100% lokale KI, GPU-beschleunigt, ohne Abonnements. Das Werkzeug für Perfektionisten.">
+    <meta property="og:title" content="chromaFX – The RAW Editor">
+    <meta property="og:description" content="RAW-Bearbeitung neu gedacht. 100% lokale KI, GPU-beschleunigt, ohne Abonnements. Die Lightroom-Alternative für Fotografen.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="chromaFX-showcase.png"> <!-- Nutzt direkt dein Showcase-Bild für Link-Vorschauen -->
-    <!-- <meta property="og:url" content="https://www.chromafx.de"> (Hier später deine echte Domain eintragen) -->
+    <meta property="og:image" content="chromaFX-showcase.png">
+    <!-- og:url eintragen sobald die Domain feststeht, z.B.: -->
+    <!-- <meta property="og:url" content="https://www.chromafx.de"> -->
 
-    <!-- Twitter Card (Für Vorschauen auf X / Twitter) -->
+    <!-- Twitter/X Card: summary_large_image zeigt das Screenshot-Bild groß in der Vorschau -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="chromaFX – The RAW Editor for Linux">
-    <meta name="twitter:description" content="Professionelle Software gehört dir. Nicht der Cloud. Ein hochoptimierter, nicht-destruktiver RAW-Editor.">
+    <meta name="twitter:title" content="chromaFX – The RAW Editor">
+    <meta name="twitter:description" content="Professionelle Software gehört dir. Nicht der Cloud. Kostenloser, nicht-destruktiver RAW-Editor.">
     <meta name="twitter:image" content="chromaFX-showcase.png">
 
     <!-- Google Fonts -->
@@ -65,7 +75,7 @@
             --planned: #3B82F6;
         }
 
-        /* Reset & Mobile Overflow Fixes */
+        /* Basis-Reset, verhindert horizontales Scrollen auf Mobile */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -97,7 +107,7 @@
             padding: 0 1.5rem; 
         }
 
-        /* --- View Management (SPA Logic) --- */
+        /* Seitennavigation – welche Section gerade sichtbar ist */
         .view-section {
             display: none;
             animation: fadeIn 0.4s ease forwards;
@@ -133,7 +143,7 @@
             padding: 0 1.5rem;
         }
 
-        /* Logo (Nur Bild) */
+        /* Logo – nur das Bild, kein Text daneben */
         .logo {
             display: flex;
             align-items: center;
@@ -176,7 +186,6 @@
             flex: 1;
             justify-content: flex-end;
         }
-
         .badge {
             background-color: #fce7f3;
             color: #be185d;
@@ -225,7 +234,7 @@
         }
         .btn-primary:hover { background-color: #222; border-color: #222; transform: translateY(-2px); }
 
-        /* Sekundärer Button Style */
+        /* Sekundärer Button – transparent mit Rahmen */
         .btn-secondary {
             background-color: transparent; color: var(--text-main); border: 1px solid rgba(0,0,0,0.1);
         }
@@ -239,7 +248,6 @@
             box-shadow: 0 40px 80px -20px rgba(0,0,0,0.25); background-color: #111; border: 1px solid rgba(0,0,0,0.1);
         }
         .app-showcase img { width: 100%; height: auto; display: block; }
-
         /* --- Philosophy Section --- */
         .philosophy {
             padding: 8rem 0; background-color: var(--surface-dark); color: #ffffff; text-align: center;
@@ -260,7 +268,6 @@
         .killer-item:last-child { margin-bottom: 0; }
         .killer-item h3 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
         .killer-item p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
-
         /* --- Page Header (Reusable) --- */
         .page-header { padding: 160px 0 4rem; text-align: center; }
         .page-header h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1rem; font-weight: 800; letter-spacing: -0.04em;}
@@ -323,7 +330,6 @@
             color: var(--text-main);
             font-weight: 600;
         }
-
         /* --- Roadmap Grid --- */
         .roadmap-section { margin-bottom: 6rem; }
         .roadmap-section h2 { font-size: 2rem; font-weight: 800; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--surface-color); letter-spacing: -0.02em; }
@@ -393,7 +399,7 @@
 </head>
 <body>
 
-    <!-- STICKY HEADER -->
+    <!-- STICKY HEADER mit Navigation -->
     <header>
         <div class="header-content">
             <div class="logo" onclick="switchView('home')">
@@ -418,24 +424,23 @@
         </div>
     </header>
 
-    <!-- ========================================== -->
-    <!-- VIEW: STARTSEITE (HOME)                    -->
-    <!-- ========================================== -->
+    <!-- STARTSEITE -->
     <main id="view-home" class="view-section active">
         
         <section class="hero container">
-            <h1>RAW-Bearbeitung.<br>Neu gedacht für Linux.</h1>
+            <h1>RAW-Bearbeitung.<br>Neu gedacht.</h1>
             <div class="subtitle">
                 Ein hochoptimierter, nicht-destruktiver und GPU-beschleunigter RAW-Bildeditor. <br>
-                <strong>100% lokal. Keine Abonnements. Aktuell in der Entwicklung.</strong>
+                <strong>100% lokal. Keine Abonnements.</strong><br>
+                <span style="font-size:0.9em;">Aktuell in der Entwicklung – noch nicht zum Download verfügbar.</span>
             </div>
             
             <div class="btn-group">
-                <a onclick="switchView('all-features')" class="btn btn-primary">
-                    Alle Features entdecken
+                <a href="https://whatsapp.com/channel/0029Vb7mjkM4o7qO78tl3K16" target="_blank" class="btn btn-primary">
+                    Release-Benachrichtigung erhalten
                 </a>
-                <a onclick="switchView('roadmap')" class="btn btn-secondary">
-                    Zur Roadmap
+                <a onclick="switchView('all-features')" class="btn btn-secondary">
+                    Alle Features entdecken
                 </a>
             </div>
 
@@ -450,8 +455,7 @@
                 <p>Deshalb bauen wir chromaFX. Eine App, die einmal geladen wird und für immer auf deiner Festplatte bleibt. Keine versteckte Telemetrie, kein Account-Zwang, keine monatlichen Kosten. Nur du, deine Bilder und deine Hardware.</p>
             </div>
         </section>
-
-        <!-- Die "Killer Features" - Fokussiert & Zentriert -->
+        <!-- Die wichtigsten Features auf der Startseite, kompakt zusammengefasst -->
         <section class="killer-features container">
             <div class="killer-header">
                 <h2>Das Werkzeug für Perfektionisten.</h2>
@@ -474,9 +478,7 @@
         </section>
     </main>
 
-    <!-- ========================================== -->
-    <!-- VIEW: ALLE FEATURES                        -->
-    <!-- ========================================== -->
+    <!-- ALLE FEATURES -->
     <main id="view-all-features" class="view-section">
         <section class="page-header container">
             <h1>Funktionsumfang</h1>
@@ -641,10 +643,7 @@
             </div>
         </div>
     </main>
-
-    <!-- ========================================== -->
-    <!-- VIEW: ROADMAP (GEPLANTE FEATURES)          -->
-    <!-- ========================================== -->
+    <!-- ROADMAP -->
     <main id="view-roadmap" class="view-section">
         <section class="page-header container">
             <h1>Entwicklungs-Roadmap</h1>
@@ -704,14 +703,12 @@
             </div>
             <div class="copyright">
                 &copy; 2026 Dominik Schrödel. chromaFX.<br>
-                Software befindet sich in der Entwicklung. Release-Datum noch offen.
+                Software befindet sich in der Entwicklung. Kein Download verfügbar.
             </div>
         </div>
     </footer>
 
-    <!-- ========================================== -->
-    <!-- OVERLAYS (MODALS) - RECHTLICHES            -->
-    <!-- ========================================== -->
+    <!-- MODALS: Impressum & Datenschutz -->
     
     <!-- Impressum Modal -->
     <div id="modal-impressum" class="modal">
@@ -795,21 +792,17 @@
         </div>
     </div>
 
-    <!-- --- JAVASCRIPT --- -->
+    <!-- JAVASCRIPT -->
     <script>
-        // Single Page App Navigation
+        // Wechselt zwischen den drei Seiten (Home, Features, Roadmap)
         function switchView(viewId) {
-            // Verstecke alle Views
             document.querySelectorAll('.view-section').forEach(el => {
                 el.classList.remove('active');
             });
-            // Zeige gewählte View
             document.getElementById('view-' + viewId).classList.add('active');
-            
-            // Scrolle ganz nach oben
             window.scrollTo(0, 0);
 
-            // Aktualisiere Menü-Style
+            // Aktiven Menüpunkt hervorheben
             document.querySelectorAll('nav.main-menu a').forEach(el => {
                 el.classList.remove('active');
             });
@@ -817,20 +810,19 @@
             if(navLink) navLink.classList.add('active');
         }
 
-        // Modals / Overlays öffnen und schließen
         function openModal(id) {
             document.getElementById('modal-' + id).classList.add('open');
-            document.body.style.overflow = 'hidden'; // Verhindert scrollen im Hintergrund
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModals() {
             document.querySelectorAll('.modal').forEach(el => {
                 el.classList.remove('open');
             });
-            document.body.style.overflow = 'auto'; // Erlaubt scrollen wieder
+            document.body.style.overflow = 'auto';
         }
 
-        // Schließe Modals mit Escape-Taste
+        // Escape schließt Impressum/Datenschutz
         document.addEventListener('keydown', function(event) {
             if (event.key === "Escape") {
                 closeModals();
