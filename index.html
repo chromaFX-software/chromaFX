@@ -3,58 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <!-- Originaler Titel, wie gewünscht -->
     <title>chromaFX – Der RAW Editor</title>
     
-    <!-- SEO & Social Meta Tags -->
+    <!-- SEO META DESCRIPTION: Max 155 Zeichen. Animiert zum Klicken. -->
+    <meta name="description" content="chromaFX: Der leistungsstarke RAW-Bildeditor für Linux. 100% lokale KI, GPU-beschleunigt & ohne Abo. Profi-Fotografie auf Ubuntu, Arch & Fedora. Jetzt entdecken!">
 
-    <!-- Google zeigt diese Beschreibung direkt unter dem Seitentitel in den Suchergebnissen -->
-    <meta name="description" content="chromaFX – Nicht-destruktiver RAW-Bildeditor für Linux mit GPU-Beschleunigung und 100% lokaler KI. Kostenlos, kein Abo, kein Account. Lightroom-Alternative für Ubuntu, Arch, Fedora & Co. | The offline-first RAW photo editor for Linux.">
+    <!-- CANONICAL: Verhindert Probleme bei verschiedenen URLs -->
+    <link rel="canonical" href="https://www.chromafx.de/">
 
-    <!-- Keywords helfen Suchmaschinen beim Einordnen – je spezifischer, desto besser -->
+    <!-- MASSIV ERWEITERTE KEYWORDS -->
     <meta name="keywords" content="
         RAW Editor Linux, RAW Konverter Linux, Bildbearbeitung Linux, Foto Editor Linux, Fotografie Software Linux,
         Lightroom Alternative Linux, Capture One Alternative Linux, Darktable Alternative, RawTherapee Alternative, DxO PhotoLab Alternative,
         kostenloser RAW Editor, RAW Editor ohne Abo, Foto Software ohne Cloud, lokale Bildbearbeitung,
         Ubuntu Foto Editor, Arch Linux Foto Editor, Fedora RAW Editor, Debian Bildbearbeitung, openSUSE Foto Software,
+        Linux Mint photo editor, PopOS raw editor, Manjaro image editor, Wayland photo editor, X11 raw editor, Flatpak photo editor, AppImage,
         nicht-destruktiver Bildeditor, zerstörungsfreie Bildbearbeitung, non-destructive RAW,
         KI Bildbearbeitung offline, lokale KI Fotos, KI ohne Cloud, Offline KI Linux,
-        Auto-Culling, KI Masken, MobileSAM, Objektsegmentierung, Gesichtserkennung offline,
+        Auto-Culling, KI Masken, MobileSAM, Objektsegmentierung, Gesichtserkennung offline, AI denoise linux, AI upscaling, AI sharpening,
         GPU-beschleunigt Bildbearbeitung, OpenCL Bildbearbeitung, CUDA Foto Editor,
         MIDI Controller Bildbearbeitung, Loupedeck Linux, Stream Deck Foto Editor, MIDI Learn,
-        Focus Stacking Linux, HDR Zusammenführung Linux, Tethered Shooting Linux, gphoto2,
-        Color Grading Linux, 3-Wege Color Grading, Farbkorrektur, LUT Editor, .cube LUT,
+        Focus Stacking Linux, HDR Zusammenführung Linux, Tethered Shooting Linux, gphoto2, tethering canon linux, tethering sony linux, tethering nikon linux,
+        Color Grading Linux, 3-Wege Color Grading, Farbkorrektur, LUT Editor, .cube LUT, color checker, color calibration,
         ICC Farbmanagement, AdobeRGB, ProPhoto RGB, Soft Proofing,
-        RAW Entwicklung, Lensfun Objektivkorrektur, Vignettierung korrigieren, Verzeichnung korrigieren,
-        Smart Collections, Digital Asset Management Linux, DAM Software, Fotoverwaltung Linux,
-        Panorama Software Linux, Makrofotografie Software, Schärfentiefe stapeln,
-        XMP Sidecar, EXIF Editor, Metadaten bearbeiten,
+        RAW Entwicklung, Lensfun Objektivkorrektur, Vignettierung korrigieren, Verzeichnung korrigieren, chromatische Aberration,
+        Smart Collections, Digital Asset Management Linux, DAM Software, Fotoverwaltung Linux, batch processing,
+        Panorama Software Linux, Makrofotografie Software, Schärfentiefe stapeln, focus peaking,
+        XMP Sidecar, EXIF Editor, Metadaten bearbeiten, exiftool alternative, watermark, print layout,
+        Sony ARW, Canon CR2 CR3, Nikon NEF, Fujifilm RAF, Panasonic RW2, OM System ORF, DNG converter, uncompressed raw, lossless compressed raw,
         chromaFX, chroma FX, Dominik Schrödel,
-        RAW editor Linux, photo editor Linux, free RAW converter Linux, offline photo editing,
-        local AI photo editing, non-destructive photo editor, Lightroom alternative free,
+        RAW editor Linux, photo editor Linux, free RAW converter Linux, offline photo editing, open source bildbearbeitung,
+        local AI photo editing, non-destructive photo editor, Lightroom alternative free, digital darkroom, darkroom software,
         GPU accelerated photo editor, MIDI photo editing, tethered shooting software,
         focus stacking software, HDR software Linux, color grading software Linux,
         Ubuntu photo editor, Arch Linux RAW editor, open source photo editor alternative
     ">
 
     <meta name="author" content="Dominik Schrödel">
-    <!-- Suchmaschinen sollen die Seite vollständig indexieren und auch große Bilder für die Bildsuche berücksichtigen -->
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="language" content="German, English">
+    <meta name="revisit-after" content="7 days">
 
-    <!-- Open Graph: Sorgt für schöne Vorschauen wenn jemand den Link auf Discord, WhatsApp, LinkedIn etc. teilt -->
+    <!-- OPEN GRAPH (Social Media SEO für WhatsApp, Discord, LinkedIn etc.) -->
     <meta property="og:site_name" content="chromaFX">
-    <meta property="og:title" content="chromaFX – The RAW Editor">
-    <meta property="og:description" content="RAW-Bearbeitung neu gedacht. 100% lokale KI, GPU-beschleunigt, ohne Abonnements. Die Lightroom-Alternative für Fotografen.">
+    <meta property="og:title" content="chromaFX – Der RAW Editor">
+    <meta property="og:description" content="Kein Abo, kein Account, 100% Privatsphäre. Der GPU-beschleunigte RAW-Editor für Profi-Fotografen unter Linux.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="chromaFX-showcase.png">
-    <!-- og:url eintragen sobald die Domain feststeht, z.B.: -->
-    <!-- <meta property="og:url" content="https://www.chromafx.de"> -->
+    <meta property="og:url" content="https://www.chromafx.de/">
+    <meta property="og:image" content="https://www.chromafx.de/chromaFX-showcase.png">
+    <meta property="og:image:alt" content="Vorschau der chromaFX Benutzeroberfläche mit RAW-Bildbearbeitung">
 
-    <!-- Twitter/X Card: summary_large_image zeigt das Screenshot-Bild groß in der Vorschau -->
+    <!-- TWITTER / X CARD -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="chromaFX – The RAW Editor">
-    <meta name="twitter:description" content="Professionelle Software gehört dir. Nicht der Cloud. Kostenloser, nicht-destruktiver RAW-Editor.">
-    <meta name="twitter:image" content="chromaFX-showcase.png">
+    <meta name="twitter:title" content="chromaFX – Der RAW Editor">
+    <meta name="twitter:description" content="Professionelle RAW-Entwicklung ohne Cloud-Zwang. Hardware-beschleunigt und lokal.">
+    <meta name="twitter:image" content="https://www.chromafx.de/chromaFX-showcase.png">
+
+    <!-- JSON-LD SCHEMA (Strukturierte Daten für Google) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "chromaFX",
+      "operatingSystem": "Linux",
+      "applicationCategory": "MultimediaApplication",
+      "offers": {
+        "@type": "Offer",
+        "price": "0.00",
+        "priceCurrency": "EUR"
+      },
+      "description": "Ein nicht-destruktiver RAW-Bildeditor für Linux mit GPU-Beschleunigung und lokaler KI Engine.",
+      "author": {
+        "@type": "Person",
+        "name": "Dominik Schrödel"
+      },
+      "featureList": "Nicht-destruktive Bearbeitung, GPU-Beschleunigung, lokale KI-Maskierung, MIDI-Support, Tethering, Focus Stacking"
+    }
+    </script>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -75,7 +102,6 @@
             --planned: #3B82F6;
         }
 
-        /* Basis-Reset, verhindert horizontales Scrollen auf Mobile */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -107,7 +133,6 @@
             padding: 0 1.5rem; 
         }
 
-        /* Seitennavigation – welche Section gerade sichtbar ist */
         .view-section {
             display: none;
             animation: fadeIn 0.4s ease forwards;
@@ -143,7 +168,6 @@
             padding: 0 1.5rem;
         }
 
-        /* Logo – nur das Bild, kein Text daneben */
         .logo {
             display: flex;
             align-items: center;
@@ -175,7 +199,6 @@
         nav.main-menu a:hover { color: var(--text-main); }
         nav.main-menu a.active { color: var(--text-main); font-weight: 700; }
         
-        /* WhatsApp Icon im Menü */
         nav.main-menu a.whatsapp { color: var(--text-muted); }
         nav.main-menu a.whatsapp:hover { color: var(--whatsapp); }
         .wa-icon { width: 18px; height: 18px; fill: currentColor; }
@@ -234,7 +257,6 @@
         }
         .btn-primary:hover { background-color: #222; border-color: #222; transform: translateY(-2px); }
 
-        /* Sekundärer Button – transparent mit Rahmen */
         .btn-secondary {
             background-color: transparent; color: var(--text-main); border: 1px solid rgba(0,0,0,0.1);
         }
@@ -248,6 +270,7 @@
             box-shadow: 0 40px 80px -20px rgba(0,0,0,0.25); background-color: #111; border: 1px solid rgba(0,0,0,0.1);
         }
         .app-showcase img { width: 100%; height: auto; display: block; }
+        
         /* --- Philosophy Section --- */
         .philosophy {
             padding: 8rem 0; background-color: var(--surface-dark); color: #ffffff; text-align: center;
@@ -258,16 +281,15 @@
         }
         .philosophy p { color: #a1a1aa; font-size: 1.15rem; max-width: 650px; margin: 0 auto; line-height: 1.6; }
 
-        /* --- Killer Features (Startseite) --- */
+        /* --- Killer Features --- */
         .killer-features { padding: 8rem 0; text-align: center; }
-        
         .killer-header { margin-bottom: 5rem; }
         .killer-header h2 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.03em; }
-
         .killer-item { max-width: 700px; margin: 0 auto 5rem; text-align: center; }
         .killer-item:last-child { margin-bottom: 0; }
         .killer-item h3 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 1rem; }
         .killer-item p { color: var(--text-muted); font-size: 1.1rem; line-height: 1.6; }
+        
         /* --- Page Header (Reusable) --- */
         .page-header { padding: 160px 0 4rem; text-align: center; }
         .page-header h1 { font-size: clamp(2.5rem, 6vw, 4rem); margin-bottom: 1rem; font-weight: 800; letter-spacing: -0.04em;}
@@ -304,10 +326,7 @@
             padding-bottom: 1rem;
         }
 
-        .feature-category ul {
-            list-style: none;
-        }
-
+        .feature-category ul { list-style: none; }
         .feature-category li {
             position: relative;
             padding-left: 1.5rem;
@@ -316,7 +335,6 @@
             font-size: 0.95rem;
             line-height: 1.5;
         }
-
         .feature-category li::before {
             content: '✓';
             position: absolute;
@@ -325,15 +343,11 @@
             color: var(--done);
             font-weight: 800;
         }
-
-        .feature-category li strong {
-            color: var(--text-main);
-            font-weight: 600;
-        }
+        .feature-category li strong { color: var(--text-main); font-weight: 600; }
+        
         /* --- Roadmap Grid --- */
         .roadmap-section { margin-bottom: 6rem; }
         .roadmap-section h2 { font-size: 2rem; font-weight: 800; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--surface-color); letter-spacing: -0.02em; }
-        
         .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
         .feature-card { background-color: var(--surface-color); padding: 2rem; border-radius: 16px; transition: transform 0.2s; }
         .feature-card:hover { transform: translateY(-4px); }
@@ -403,7 +417,7 @@
     <header>
         <div class="header-content">
             <div class="logo" onclick="switchView('home')">
-                <img src="chromaFX.png" alt="chromaFX Logo">
+                <img src="chromaFX.png" alt="chromaFX Logo - Der Linux RAW Editor">
             </div>
             
             <nav class="main-menu">
@@ -445,7 +459,7 @@
             </div>
 
             <div class="app-showcase">
-                <img src="chromaFX-showcase.png" alt="chromaFX Interface">
+                <img src="chromaFX-showcase.png" alt="Screenshot der chromaFX Software - Professioneller RAW-Editor unter Linux">
             </div>
         </section>
 
@@ -455,7 +469,8 @@
                 <p>Deshalb bauen wir chromaFX. Eine App, die einmal geladen wird und für immer auf deiner Festplatte bleibt. Keine versteckte Telemetrie, kein Account-Zwang, keine monatlichen Kosten. Nur du, deine Bilder und deine Hardware.</p>
             </div>
         </section>
-        <!-- Die wichtigsten Features auf der Startseite, kompakt zusammengefasst -->
+        
+        <!-- Die wichtigsten Features auf der Startseite -->
         <section class="killer-features container">
             <div class="killer-header">
                 <h2>Das Werkzeug für Perfektionisten.</h2>
@@ -488,7 +503,6 @@
         <div class="container">
             <div class="all-features-grid">
                 
-                <!-- Kategorie 1 -->
                 <div class="feature-category">
                     <h3>Bildbearbeitung (Global & Lokal)</h3>
                     <ul>
@@ -517,7 +531,6 @@
                     </ul>
                 </div>
 
-                <!-- Kategorie 2 -->
                 <div class="feature-category">
                     <h3>Ebenen & Masken</h3>
                     <ul>
@@ -538,7 +551,6 @@
                     </ul>
                 </div>
 
-                <!-- Kategorie 3 -->
                 <div class="feature-category">
                     <h3>Dateiverwaltung (DAM)</h3>
                     <ul>
@@ -557,7 +569,6 @@
                     </ul>
                 </div>
 
-                <!-- Kategorie 4 -->
                 <div class="feature-category">
                     <h3>KI & Analyse (100% Offline)</h3>
                     <ul>
@@ -574,7 +585,6 @@
                     </ul>
                 </div>
 
-                <!-- Kategorie 5 -->
                 <div class="feature-category">
                     <h3>Bild-Kombination & Tethering</h3>
                     <ul>
@@ -585,7 +595,6 @@
                     </ul>
                 </div>
 
-                <!-- Kategorie 6 -->
                 <div class="feature-category">
                     <h3>Export & Ausgabe</h3>
                     <ul>
@@ -604,7 +613,6 @@
                     </ul>
                 </div>
 
-                <!-- Kategorie 7 -->
                 <div class="feature-category">
                     <h3>UI & Workflow</h3>
                     <ul>
@@ -625,7 +633,6 @@
                     </ul>
                 </div>
 
-                <!-- Kategorie 8 -->
                 <div class="feature-category">
                     <h3>Performance & System</h3>
                     <ul>
@@ -643,6 +650,7 @@
             </div>
         </div>
     </main>
+
     <!-- ROADMAP -->
     <main id="view-roadmap" class="view-section">
         <section class="page-header container">
@@ -695,7 +703,7 @@
     <footer>
         <div class="container">
             <div class="footer-logo" onclick="switchView('home')">
-                <img src="chromaFX.png" alt="Logo">
+                <img src="chromaFX.png" alt="chromaFX Footer Logo">
             </div>
             <div class="footer-links">
                 <a onclick="openModal('impressum')">Impressum</a>
@@ -830,4 +838,4 @@
         });
     </script>
 </body>
-                                                                                                                                                                                                                            </html>
+</html>
